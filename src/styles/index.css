@@ -40,12 +40,12 @@ body h4 {
   padding: 0px 40px;
 }
 
-#dashboard {
+#dashboard_btn {
   top: 20px;
   background-color: #007C89;
 }
 
-#new_employee {
+#new_employee_btn {
   top: 60px;
   background-color: #29712A;
 }

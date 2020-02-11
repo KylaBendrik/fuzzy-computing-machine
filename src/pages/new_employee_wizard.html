@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>New Employee Wizard</title>
+  <title id="new_employee_page">New Employee Wizard</title>
   <link rel="stylesheet" href="..\styles\index.css">
   <script src="..\scripts\sidenav.js"></script>
 
@@ -14,7 +14,7 @@
     <h4>Enter the information requested below.</h4>
   </div>
 
-  <form name="new_employee" onSubmit="JavaScript:sendForm(event)">
+  <form name="new_employee_form" onSubmit="JavaScript:sendForm(event)">
     <fieldset>
       <legend>Personal information:</legend>
       First name:<br>
@@ -26,9 +26,7 @@
   </form>
 
 
-  <div class="sidenav">
-    <button id='dashboard'>Dashboard</button>
-    <button id='new_employee'>New Employee</button>
+  <div id='sidenav' class="sidenav">
   </div>
 
   <script src='../scripts/renderFile.js'></script>
