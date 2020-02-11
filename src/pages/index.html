@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Payroll Retirement Converter</title>
-    <link rel="stylesheet" href="..\styles\index.css">
-    <script src="..\scripts\home.js"></script>
-  </head>
-  <body>
-    <p>Welcome to the Payroll Retirement Converter!</p>
-    Click <button id='new_employee'>here</button> to open the employee info wizard
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Payroll Retirement Converter</title>
+  <link rel="stylesheet" href="..\styles\index.css">
+  <script src="..\scripts\sidenav.js"></script>
+</head>
+
+<body>
+  <div class="main">
+    <h1>Welcome to the Payroll Retirement Converter!</h1>
+  </div>
+  <!-- Side Navigation -->
+  <div class="sidenav">
+    <button id='dashboard'>Dashboard</button>
+    <button id='new_employee'>New Employee</button>
+  </div>
+
+  <script src='../scripts/renderFile.js'></script>
+</body>
+
 </html>

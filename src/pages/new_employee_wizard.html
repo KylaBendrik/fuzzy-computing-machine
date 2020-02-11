@@ -1,11 +1,37 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>New Employee Wizard</title>
-    <link rel="stylesheet" href="..\styles\index.css">
-    
-  </head>
-  <body>
-    <p>Welcome to the new employee wizard!</p>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <title>New Employee Wizard</title>
+  <link rel="stylesheet" href="..\styles\index.css">
+  <script src="..\scripts\sidenav.js"></script>
+
+</head>
+
+<body>
+  <div class="main">
+    <h1>Welcome to the new employee wizard!</h1>
+    <h4>Enter the information requested below.</h4>
+  </div>
+
+  <form name="new_employee" onSubmit="JavaScript:sendForm(event)">
+    <fieldset>
+      <legend>Personal information:</legend>
+      First name:<br>
+      <input type="text" id="firstname"><br>
+      Last name:<br>
+      <input type="text" id="lastname"><br>
+      <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+
+
+  <div class="sidenav">
+    <button id='dashboard'>Dashboard</button>
+    <button id='new_employee'>New Employee</button>
+  </div>
+
+  <script src='../scripts/renderFile.js'></script>
+</body>
+
 </html>
