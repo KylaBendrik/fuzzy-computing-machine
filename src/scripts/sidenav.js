@@ -1,8 +1,6 @@
 const { BrowserWindow } = require('electron').remote
 
 window.onload=function(){
-  //make this automated soon - used just for clicky bit
-  // const newEmployeeBtn = document.getElementById("new_employee_btn");
 
   //console title
   const side_nav_pages = [
@@ -19,17 +17,26 @@ window.onload=function(){
       text: 'New Employee',
       color: '#29712A',
       button_style: 'new'
+    },
+    {title_id: 'employee_page', 
+      button: 'employee_btn',
+      html: 'employee_info.html', 
+      text: 'Employees',
+      color: '#7A0441',
+      button_style: 'change'
     }
   ]
 
   // generate buttons
   parentDiv = document.getElementById("sidenav")
+  let spacing = 40
 
   side_nav_pages.forEach(function (page, index) {
-    element = document.createElement('button')
+    let element = document.createElement('button')
     element.id = page.button
     element.style.backgroundColor = page.color
     element.innerHTML = page.text
+    element.style.top = `${20 + (spacing * index)}px`
 
     // add event listener
     element.addEventListener('click', (event) => {
@@ -38,7 +45,7 @@ window.onload=function(){
       if (page.button_style == 'new'){
         let win = new BrowserWindow({ width: 600, height: 500, webPreferences: {
           nodeIntegration: true
-        },})
+        }, frame: false})
       
         win.on('close', () => {win = null})
         win.loadURL(`file://${__dirname}/${page.html}`)
@@ -47,10 +54,12 @@ window.onload=function(){
         // win.webContents.getElementById("new_employee").style.backgroundColor = 'black';
         // Open the DevTools.
         // win.webContents.openDevTools();
-      } else {
+      } else if (page.button_style == 'focus'){
         // focus on open page
         console.log(BrowserWindow.getAllWindows())
         window.close()
+      } else {
+        window.loadURL(page.html)
       }
       
     })
@@ -74,7 +83,7 @@ window.onload=function(){
   pageButton.style.left = '-100px'
   pageButton.addEventListener("mouseover", mOver)
   pageButton.addEventListener("mouseout", mOut)
-  pageButton.removeEventListener('click')
+  // pageButton.removeEventListener('click')
 
   function mOver() {
     pageButton.style.left = '0px'
@@ -83,23 +92,6 @@ window.onload=function(){
   function mOut() {
     pageButton.style.left = '-100px'
   }
-
-  // what happens when we click the button?
-
-  // newEmployeeBtn.addEventListener('click', (event) => {
-  //   console.log('button pushed!')
-  //   let win = new BrowserWindow({ width: 600, height: 500, webPreferences: {
-  //     nodeIntegration: true
-  //   },})
-  
-  //   win.on('close', () => {win = null})
-  //   win.loadURL(`file://${__dirname}/new_employee_wizard.html`)
-  //   win.show()
-
-  //   // win.webContents.getElementById("new_employee").style.backgroundColor = 'black';
-  //   // Open the DevTools.
-  //   win.webContents.openDevTools();
-  // })
 }
 
 

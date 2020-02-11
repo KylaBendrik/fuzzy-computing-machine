@@ -39,13 +39,3 @@ body h4 {
 .main {
   padding: 0px 40px;
 }
-
-#dashboard_btn {
-  top: 20px;
-  background-color: #007C89;
-}
-
-#new_employee_btn {
-  top: 60px;
-  background-color: #29712A;
-}
