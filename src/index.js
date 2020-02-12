@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const fs = require('fs')
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -47,6 +48,11 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
-ipcMain.on('form-submission', function (event, firstname) {
-  console.log('This is the firstname from the form ->', firstname)
+ipcMain.on('form-submission', function (event, message) {
+  console.log(app.getPath("appData"))
+  console.log(message)
+  constructor(opts); {
+    const userDataPath = join(app.getPath("appData"), 'data1.txt')
+    
+  }
 })
