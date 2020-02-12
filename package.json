@@ -1,9 +1,9 @@
 {
-  "name": "fuzzy-computing-machine",
+  "name": "payroll-converter",
   "productName": "Payroll Retirement Converter",
   "version": "0.0.1",
   "description": "Payroll formatting system to integrate with NAD Retirement",
-  "main": "src/index.js",
+  "main": "src/scripts/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -24,7 +24,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "fuzzy_computing"
+            "name": "payroll-converter"
           }
         },
         {
