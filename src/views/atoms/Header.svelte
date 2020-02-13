@@ -11,18 +11,20 @@
     }
   }
 </script>
-<style>
+<style type="text/scss">
+  @use 'src/colors';
+
   .header {
     font-size: 40px;
     font-family: 'Noto Sans';
     font-weight: bold;
     text-align: right;
     text-transform: uppercase;
-    color: white;
+    color: colors.$headerText;
     max-width: 100%;
     position: sticky;
     top: 0;
-    background-color: cadetblue;
+    background-color: colors.$headerBack;
     padding: 40px 100px;
     transition: 0.5s;
   }
