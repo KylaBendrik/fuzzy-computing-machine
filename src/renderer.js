@@ -25,15 +25,13 @@
  *  });
  * ```
  */
-import App from './App.svelte';
-const app = new App({
-	target: document.body,
-	props: {
-		// we'll learn about props later
-		answer: 42
-	}
-});
-
+import App from './app.svelte';
 import './index.css';
+import './views/fonts/fonts.css';
 
 console.log('👋 This message is being logged by "renderer.js", included via webpack');
+
+new App({
+	target: document.body,
+	props: {}
+})

@@ -1,4 +1,3 @@
-/* Noto Sans: Headlings, subheads, callouts, and body copy */
 @font-face {
   font-family: 'Noto Sans';
   src: url(NotoSans-Regular.ttf);
@@ -12,4 +11,9 @@
   font-family: 'Noto Sans';
   src: url(NotoSans-Italic.ttf);
   font-style: italic;
+}
+/* Noto Sans: Headlings, subheads, callouts, and body copy */
+body, p {
+  font-family: 'Noto Sans';
+  font-size: 16px;
 }

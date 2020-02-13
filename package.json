@@ -73,10 +73,14 @@
     "css-loader": "^3.4.2",
     "electron": "8.0.0",
     "node-loader": "^0.6.0",
-    "style-loader": "^0.23.1"
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^0.23.1",
+    "file-loader": "^5.0.0",
+    "svelte-loader": "^2.13.6"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "svelte-loader": "^2.13.6"
+    "svelte": "^3.18.2"
   }
 }
