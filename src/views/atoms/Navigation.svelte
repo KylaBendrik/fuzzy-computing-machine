@@ -1,7 +1,10 @@
 <script>
+import {createEventDispatcher} from 'svelte';
+const dispatch = createEventDispatcher();
+
 	let pages = [
 		{id: '0', name: 'Dashboard', href:'/Dashboard'}, 
-		{id: '1', name: 'Organization Info', href:'/Org_info'}, 
+		{id: '1', name: 'Organization Info', href:'/OrgInfo'}, 
 		{id: '2', name: 'Employees', href:'/Employees'}
 	]
 	let colors = [
@@ -12,7 +15,36 @@
 	function navigate(event) {
 		event.preventDefault();
 		currentPage = event.target.dataset.pageId;
+  }
+  
+  $: if (currentPage == '0'){
+		pickDashboard()
+	} else if (currentPage == '2'){
+		pickEmployees()
+	} else if (currentPage == '1'){
+    pickOrgInfo()
+  }
+
+  function pickDashboard(){
+		dispatch('message', {
+      destination: "Dashboard",
+      title: "Dashboard"
+		});
+  }
+  function pickOrgInfo(){
+		dispatch('message', {
+      destination: "OrgInfo",
+      title: "Organization Info"
+		});
 	}
+	function pickEmployees(){
+		dispatch('message', {
+			destination: "Employees",
+      title: "Employees"
+		});
+	}
+
+
 </script>
 
 <style type="text/scss">

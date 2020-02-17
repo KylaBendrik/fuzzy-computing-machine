@@ -1,8 +1,22 @@
 <script>
-  export let title;
-  export let info;
+  
+
+  import Dashboard from "./content/Dashboard.svelte";
+  import Employees from "./content/Employees.svelte";
+  import OrgInfo from "./content/OrgInfo.svelte";
 
   import Navigation from "./atoms/Navigation.svelte";
+
+  let selected = {
+    component: Dashboard,
+    title: "Dashboard"}
+
+  const pages = { Dashboard, Employees, OrgInfo };
+
+  function handleMessage(event) {
+    selected.component = pages[event.detail.destination];
+    selected.title = event.detail.title;
+	}
 
   window.onscroll = function() {
     scrollFunction();
@@ -61,13 +75,10 @@
 
 <div id="backdrop">
   <div id="header">
-    <div id="headerText">{title}</div>
+    <div id="headerText">{selected.title}</div>
   </div>
   <Navigation />
   <div id="main_page">
-    <h1>This is the {title} page.</h1>
-    <p>
-      {@html info}
-    </p>
+    <svelte:component this={selected.component}/>
   </div>
 </div>
