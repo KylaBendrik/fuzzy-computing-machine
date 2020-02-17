@@ -14,30 +14,37 @@ const dispatch = createEventDispatcher();
 	
 	function navigate(event) {
 		event.preventDefault();
-		currentPage = event.target.dataset.pageId;
+    currentPage = event.target.dataset.pageId;
+    console.log(currentPage)
   }
   
   $: if (currentPage == '0'){
+    console.log('dashboard button')
 		pickDashboard()
 	} else if (currentPage == '2'){
+    console.log('employees button')
 		pickEmployees()
 	} else if (currentPage == '1'){
+    console.log('organization button')
     pickOrgInfo()
   }
 
   function pickDashboard(){
+    console.log('pickDashboard');
 		dispatch('message', {
       destination: "Dashboard",
       title: "Dashboard"
 		});
   }
   function pickOrgInfo(){
+    console.log('pickOrgInfo');
 		dispatch('message', {
       destination: "OrgInfo",
       title: "Organization Info"
 		});
 	}
 	function pickEmployees(){
+    console.log('picEmployees');
 		dispatch('message', {
 			destination: "Employees",
       title: "Employees"

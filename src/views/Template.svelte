@@ -14,8 +14,10 @@
   const pages = { Dashboard, Employees, OrgInfo };
 
   function handleMessage(event) {
+    console.log('handleMessage')
     selected.component = pages[event.detail.destination];
     selected.title = event.detail.title;
+    console.log(selected.title)
 	}
 
   window.onscroll = function() {
@@ -77,7 +79,7 @@
   <div id="header">
     <div id="headerText">{selected.title}</div>
   </div>
-  <Navigation />
+  <Navigation  on:message={handleMessage}/>
   <div id="main_page">
     <svelte:component this={selected.component}/>
   </div>
