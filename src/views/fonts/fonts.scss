@@ -1,4 +1,4 @@
-@use 'src/colors';
+@import 'src/colors';
 
 @font-face {
   font-family: 'Noto Sans';
@@ -18,8 +18,8 @@
 body, p {
   font-family: 'Noto Sans';
   font-size: 16px;
-  color: colors.$bodyText;
+  color: $bodyText;
 }
 h1 {
-  color: colors.$hText;
+  color: $hText;
 }

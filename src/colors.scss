@@ -1,4 +1,8 @@
-$bodyText: #7a0441;
-$hText:  #ce4089;
-$headBack: $bodyText;
-$headText: white;
+$mainColor: #0b7f89;
+//$mainColor: #7a0441;
+
+$bodyText: #000000;
+$hText:  $mainColor;
+$headBack: $mainColor;
+$headText: White;
+$background: mix(white, $mainColor, 90%);

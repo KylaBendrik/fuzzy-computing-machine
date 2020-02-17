@@ -1,4 +1,4 @@
-const { sass } = require('svelte-preprocess-sass');
+// const { sass } = require('svelte-preprocess-sass');
 
 module.exports = [
   // Add support for native node modules
@@ -21,11 +21,7 @@ module.exports = [
     exclude: /node_modules/,
     use: {
       loader: 'svelte-loader',
-      options: {
-        preprocess: {
-          style: sass({}, { name: 'scss' })
-        }
-      }
+      options: require('./svelte.config')
     }
   }
   // Put your webpack loader rules in this array.  This is where you would put
