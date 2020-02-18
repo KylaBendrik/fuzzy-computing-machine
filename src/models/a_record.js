@@ -5,9 +5,13 @@
 //   end
 // end
 
-class ARecord {
-  constructor() {
-    // assign default values
+// class ARecord {
+//   constructor() {
+//     // assign default values
 
+//   }
+// }
+
+  function hello() {
+    return 'Hello, World!';
   }
-}
