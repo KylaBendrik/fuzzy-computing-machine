@@ -14,12 +14,21 @@
 let a_record = {
   record_type: 'A',
   contact_info: {
-    name: 'unknown'
+    name: 'unknown',
+    email: 'unknown',
+    phone: 'unknown',
+    fax: 'unknown'
   }
 }
 
 module.exports = {
   checkRecordType() {
     return a_record.record_type;
+  },
+  updateContactInfo(contact_hash) {
+    for (const property in contact_hash) {
+      a_record.contact_info[property] = contact_hash[property]
+    }
+    return a_record
   }
 };
