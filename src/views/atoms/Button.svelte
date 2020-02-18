@@ -1,4 +1,6 @@
-<head><link rel="stylesheet" href="..\fonts\fonts.css"> </head>
+<script>
+  export let text;
+</script>
 <style>
   a {
     font-family: 'Noto Sans', sans-serif;
@@ -19,4 +21,4 @@
   }
 </style>
 
-<a>button text</a>
+<a>text</a>

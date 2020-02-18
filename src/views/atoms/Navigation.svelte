@@ -61,7 +61,8 @@ const dispatch = createEventDispatcher();
 		margin: 0;
     padding: 0;
     position: sticky;
-    top: 0px;
+		top: 0px;
+		z-index: 2;
 	}
 	a {
 		text-decoration: none;

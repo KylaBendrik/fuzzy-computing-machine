@@ -51,6 +51,7 @@
     background: $headBack;
     background: linear-gradient(90deg, $background 0%, $headBack 75%);
     transition: 0.2s;
+    z-index: 1;
   }
   #headerText {
     font-size: 60px;
@@ -63,12 +64,13 @@
   #main_page {
     margin-top: 150px;
     background: $background;
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: 80px;
+    margin-right: 80px;
   }
   #backdrop {
     width: 100%;
-    max-height: 1000%;
+    height: 100%;    
+    overflow: auto;
     background: $background;
     position: absolute;
     z-index: -1;
