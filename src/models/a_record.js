@@ -5,13 +5,21 @@
 //   end
 // end
 
-// class ARecord {
-//   constructor() {
-//     // assign default values
-
-//   }
+// let contactInfo = {
+//   name: 'Contact Name',
+//   phone: '999-999-9999',
+//   email: 'example@example.com',
+//   fax: '111-111-1111'
 // }
-
-  function hello() {
-    return 'Hello, World!';
+let a_record = {
+  record_type: 'A',
+  contact_info: {
+    name: 'unknown'
   }
+}
+
+module.exports = {
+  checkRecordType() {
+    return a_record.record_type;
+  }
+};

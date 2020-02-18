@@ -1,8 +1,6 @@
-const test = require('ava')
+const test = require('ava');
+const ARecord = require('../../src/models/a_record');
 
-//import { hello } from 'src/models/a_record.js'
-const hello = require('../../src/models/a_record')
-
-test('Say Hi!', t => {
-  t.is(hello()).toEqual('Hello, World!');
-})
+test('check record type', t => {
+  t.is(ARecord.checkRecordType(), 'A');
+});
