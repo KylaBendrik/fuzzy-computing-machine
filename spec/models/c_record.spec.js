@@ -1,6 +1,21 @@
 const test = require('ava');
 const CRecord= require('../../src/models/c_record');
 
+test('save C record as JSON', t => {
+  const recordB = {
+    record_type: {value: 'C', start: 1}
+  }
+  t.is(CRecord.saveCRecord(recordB), '{"record_type":{"value":"C","start":1}}')
+})
+
+test('read C record from JSON', t => {
+  const recordB = {
+    record_type: {value: 'C', start: 1}
+  }
+  t.deepEqual(CRecord.readCRecord('{"record_type":{"value":"C","start":1}}'), recordB)
+})
+
+
 test('update record from employee personal form', t => {
   const original_record = {
     record_type: {value: 'C', start: 1},

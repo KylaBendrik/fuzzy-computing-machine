@@ -61,6 +61,12 @@ const field_starts = {
   hire_date: 276
 }
 module.exports = {
+  saveCRecord(record){
+    return JSON.stringify(record)
+  },
+  readCRecord(record_json){
+    return JSON.parse(record_json)
+  },
   checkRecordType(record) {
     return record.record_type.value;
   },

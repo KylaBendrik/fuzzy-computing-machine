@@ -34,5 +34,11 @@ module.exports = {
     }
     
   return record_array.join('')
+  },
+  saveARecord(record){
+    return JSON.stringify(record)
+  },
+  readARecord(record_json){
+    return JSON.parse(record_json)
   }
 };
