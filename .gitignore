@@ -88,4 +88,7 @@ typings/
 # Electron-Forge
 out/
 
+# personal/test data data
+data/
+
 notes

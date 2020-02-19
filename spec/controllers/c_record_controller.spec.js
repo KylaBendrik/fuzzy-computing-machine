@@ -1,5 +1,5 @@
 const test = require('ava');
-const CRecord= require('../../src/models/c_record');
+const CRecord= require('../../src/controllers/c_record_controller');
 
 test('save C record as JSON', t => {
   const recordB = {
