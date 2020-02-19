@@ -60,9 +60,11 @@ const field_starts = {
   first_name: 11,
   hire_date: 276
 }
-
 module.exports = {
-  updateEmployeeInfo(hash, record){
+  checkRecordType(record) {
+    return record.record_type.value;
+  },
+  updateEmployeeInfo(record, hash){
     for (const prop of Object.keys(hash)) {
       record[prop].value = hash[prop]
     }
@@ -90,5 +92,37 @@ module.exports = {
       }
     }
     return all_employees
+  },
+
+  exportCRecords(all_employees){
+    c_records = []
+    for(var i = 0; i < all_employees.length; i++){
+      //each employee gets their own line
+      record_array = []
+      for (let step = 0; step < 519; step ++) {
+        // populate the array with the right number of empty spaces
+        record_array.push(" ")
+      }
+      
+      record = all_employees[i]
+      // specify THIS employee's record
+
+      for (const prop of Object.values(record)) {
+        // find all the properties in this record, apply to array
+        value = prop.value;
+        start = prop.start - 1;
+        array = prop.value.split('')
+        length = array.length;
+  
+        for (let step = 0; step < length; step ++) {
+          record_array[start + step] = array[step]
+        }
+      }
+
+      // add this record as a string to the c_records.
+      c_records.push(record_array.join(''))
+    }
+    // return all the records, each on a new line
+    return c_records.join('\n')
   }
 }

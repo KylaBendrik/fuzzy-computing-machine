@@ -13,7 +13,7 @@ test('update record from employee personal form', t => {
     first_name: 'Jonathan'
   };
 
-  t.deepEqual(CRecord.updateEmployeeInfo(personal_hash, original_record), {
+  t.deepEqual(CRecord.updateEmployeeInfo(original_record, personal_hash), {
     record_type: {value: 'C', start: 1},
     ssn: {value: '987654321', start: 2},
     first_name: {value: 'Jonathan', start: 11}
@@ -53,4 +53,16 @@ test('remove employee record from all_employees', t => {
   [
     {record_type: {value: 'C', start: 1}, ssn: {value: '987654321', start: 2}, first_name: {value: 'Jonathan', start: 11}}
   ])
+})
+
+test("export both employees' c_records", t => {
+  const all_employees = [
+    {record_type: {value: 'C', start: 1}, ssn: {value: '987654321', start: 2}, first_name: {value: 'Jonathan', start: 11}},
+    {record_type: {value: 'C', start: 1}, ssn: {value: '123456789', start: 2}, first_name: {value: 'Bob', start: 11}},
+  ]
+
+  result = CRecord.exportCRecords(all_employees)
+  t.true(result.length == (520 * 2) - 1)
+  t.true(result[0] == 'C')
+  t.true(result[520] == 'C')
 })

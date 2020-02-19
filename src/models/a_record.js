@@ -1,26 +1,23 @@
-let a_record = {
-  record_type: {value: 'A', start: 1},
-  contact_info_name: {value: 'unknown', start: 73},
-  contact_info_phone: {value: 'unknown', start: 113},
-  contact_info_email: {value: 'unknown', start: 138},
-  contact_info_fax: {value: 'unknown', start: 314}
+const field_starts = {
+  record_type: 1,
+  contact_info_name: 73,
+  contact_info_phone: 113,
+  contact_info_fax: 314,
 }
 
 module.exports = {
-  checkRecordType() {
-    return a_record.record_type.value;
+  checkRecordType(record) {
+    return record.record_type.value;
   },
-  updateContactInfo(contact_hash) {
-    a_record.contact_info_name.value  = contact_hash.name;
-    a_record.contact_info_email.value = contact_hash.email;
-    a_record.contact_info_phone.value = contact_hash.phone;
-    a_record.contact_info_fax.value   = contact_hash.fax;
-
-    return a_record
+  updateContactInfo(record, hash){
+    for (const prop of Object.keys(hash)) {
+      record[prop].value = hash[prop]
+    }
+    return record
   },
   exportARecord(record){
     let record_array = []
-    for (let step = 0; step < 340; step ++) {
+    for (let step = 0; step < 339; step ++) {
       record_array.push(" ")
     }
 
