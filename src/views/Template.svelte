@@ -1,8 +1,5 @@
 <script>
-  
-
   import Dashboard from "./content/Dashboard.svelte";
-  import Employees from "./content/Employees.svelte";
   import OrgInfo from "./content/OrgInfo.svelte";
 
   import Navigation from "./atoms/Navigation.svelte";
@@ -11,7 +8,7 @@
     component: Dashboard,
     title: "Dashboard"}
 
-  const pages = { Dashboard, Employees, OrgInfo };
+  const pages = { Dashboard, OrgInfo };
 
   function handleMessage(event) {
     console.log('handleMessage')

@@ -4,8 +4,7 @@ const dispatch = createEventDispatcher();
 
 	let pages = [
 		{id: '0', name: 'Dashboard', href:'/Dashboard'}, 
-		{id: '1', name: 'Organization Info', href:'/OrgInfo'}, 
-		{id: '2', name: 'Employees', href:'/Employees'}
+		{id: '1', name: 'Organization Info', href:'/OrgInfo'}
 	]
 	let colors = [
 		'#3e8391', '#83d3e2', '#234951'
@@ -21,9 +20,6 @@ const dispatch = createEventDispatcher();
   $: if (currentPage == '0'){
     console.log('dashboard button')
 		pickDashboard()
-	} else if (currentPage == '2'){
-    console.log('employees button')
-		pickEmployees()
 	} else if (currentPage == '1'){
     console.log('organization button')
     pickOrgInfo()
@@ -41,13 +37,6 @@ const dispatch = createEventDispatcher();
 		dispatch('message', {
       destination: "OrgInfo",
       title: "Organization Info"
-		});
-	}
-	function pickEmployees(){
-    console.log('picEmployees');
-		dispatch('message', {
-			destination: "Employees",
-      title: "Employees"
 		});
 	}
 
@@ -92,10 +81,6 @@ const dispatch = createEventDispatcher();
 	li:nth-child(2) a{
 		background: (mix(white, $mainColor, 20%));
 		top: 85px;
-	}
-	li:nth-child(3) a{
-		background: (mix(white, $mainColor, 40%));
-		top: 130px;
 	}
 </style>
 
