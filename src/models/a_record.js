@@ -12,6 +12,11 @@ function processFile(json_data){
 }
 
 module.exports = {
+  /**
+   * This takes an object, "stringifies" it, and overwrites a_record.txt
+   * @param {object} record 
+   * @returns {string} Returns the JSON string
+   */
   saveARecord(record) {
     record_json = JSON.stringify(record)
 
@@ -23,6 +28,10 @@ module.exports = {
 
     return record_json
   },
+  /**
+   * This reads the a_record, returning the content as an object.
+   * @returns {object}
+   */
   readARecord() {
     fs.readFileSync("./data/a_record.txt", function read(err, data) {
       if (err) {
