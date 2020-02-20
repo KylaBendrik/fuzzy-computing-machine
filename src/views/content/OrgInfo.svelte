@@ -1,15 +1,15 @@
 <script>
 	let emailRe = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z][A-Za-z]+" 
-	let phoneRe = "[0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]+"
-	let contactInfo = {
-		name: 'Contact Name',
-		phone: '999-999-9999',
-		email: 'example@example.com',
-		fax: '111-111-1111'
+	let phoneRe = "[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]+"
+	let formData = {
+		contact_info_name: 'Contact Name',
+		contact_info_phone: '9999999999',
+		contact_info_email: 'example@example.com',
+		contact_info_fax: '111-111-1111'
 	}
 	
 	function save() {
-		console.log(contactInfo)
+		console.log(formData)
 	}
 </script>
 
@@ -96,26 +96,26 @@
 	<tr>
 		<td class="label">Name:</td>
 		<td class="field">
-			<input type="text" id="contactName" name="contactName" bind:value={contactInfo.name}>
+			<input type="text" id="contactName" name="contactName" bind:value={formData.name}>
 		</td>
 	</tr>
 	<tr>
 		<td class="label">Phone:</td>
 		<td class="field"><input type="tel" id="tel" name="tel" 
 			 pattern={phoneRe} 
-			 bind:value={contactInfo.phone}></td>
+			 bind:value={formData.phone}></td>
 	</tr>
 	<tr>
 		<td class="label">Email:</td>
 		<td class="field"><input type="email" 
 			 pattern= {emailRe}
-			 bind:value={contactInfo.email}></td>
+			 bind:value={formData.email}></td>
 	</tr>
 	<tr>
 		<td class="label">Fax:</td>
 		<td class="field"><input type="tel" id="tel" name="fax" 
 			 pattern={phoneRe} 
-			 bind:value={contactInfo.fax}></td>
+			 bind:value={formData.fax}></td>
 	</tr>
 </table>
 </fieldset>

@@ -17,7 +17,7 @@ test('check record type', t => {
 });
 
 test('update contact info', t => {
-  t.deepEqual(ARecord.updateContactInfo(record, {contact_info_name: 'John Doe', contact_info_email: 'JohnDoe@example.com', contact_info_phone: '9999999999', contact_info_fax: '9999999999'}), 
+  t.deepEqual(ARecord.updateARecord(record, {contact_info_name: 'John Doe', contact_info_email: 'JohnDoe@example.com', contact_info_phone: '9999999999', contact_info_fax: '9999999999'}), 
   { record_type: {value: 'A', start: 1},
     contact_info_name: {value: 'John Doe', start: 73},
     contact_info_email: {value: 'JohnDoe@example.com', start: 138},

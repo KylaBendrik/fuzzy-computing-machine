@@ -1,7 +1,11 @@
 // This is for talking to the "database"
 var fs = require('fs')
 
-
+/**
+ * This function parses JSON strings into objects, with a little log to declare when it's running.
+ * @param {string} json_data input the JSON string
+ * @returns {string} returns object, ready to go!
+ */
 function processFile(json_data){
   console.log('data processed...')
   return JSON.parse(json_data)
@@ -29,6 +33,5 @@ module.exports = {
       console.log(content)
       return content
     })
-    
   }
 }

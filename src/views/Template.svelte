@@ -1,6 +1,7 @@
 <script>
   import Dashboard from "./content/Dashboard.svelte";
   import OrgInfo from "./content/OrgInfo.svelte";
+  import Export from "./content/Export.svelte";
 
   import Navigation from "./atoms/Navigation.svelte";
 
@@ -8,7 +9,7 @@
     component: Dashboard,
     title: "Dashboard"}
 
-  const pages = { Dashboard, OrgInfo };
+  const pages = { Dashboard, OrgInfo, Export };
 
   function handleMessage(event) {
     console.log('handleMessage')

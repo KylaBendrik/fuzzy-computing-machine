@@ -10,7 +10,7 @@ module.exports = {
   checkRecordType(record) {
     return record.record_type.value;
   },
-  updateContactInfo(record, hash){
+  updateARecord(record, hash){
     console.log (record)
     for (const prop of Object.keys(hash)) {
       record[prop] = {value: hash[prop], start: field_starts[prop]}
@@ -40,6 +40,8 @@ module.exports = {
     
   return record_array.join('')
   },
-  
+  createFormDataObj(record){
+    
+  }
   
 };
