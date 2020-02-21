@@ -7,9 +7,20 @@ const field_starts = {
 const ARecord = require('../models/a_record');
 
 module.exports = {
+  /**
+   * Simple test for validation
+   * @param {object} record 
+   * @returns 'A', 'C', or 'Z'
+   */
   checkRecordType(record) {
     return record.record_type.value;
   },
+  /**
+   * This function is designed for future streamlining - it'll work with any size hash. 
+   * @param {object} record Main record
+   * @param {object} hash hash from form. May be quite small. 
+   * @returns updated record
+   */
   updateARecord(record, hash){
     console.log (record)
     for (const prop of Object.keys(hash)) {
@@ -20,6 +31,11 @@ module.exports = {
     // return record
     return record
   },
+  /**
+   * This turns the a-record object into a fixed-width format
+   * @param {object} record 
+   * @returns an obscenely long string
+   */
   exportARecord(record){
     let record_array = []
     for (let step = 0; step < 339; step ++) {
@@ -40,8 +56,13 @@ module.exports = {
     
   return record_array.join('')
   },
-  createFormDataObj(record){
-    
+  /**
+   * returns the most useful hash for whatever form is being displayed (contact info, payroll info, organization info...)
+   * @param {object} record 
+   * @param {string} form_type 
+   */
+  createFormDataObj(record, form_type){
+
   }
   
 };
