@@ -29,6 +29,8 @@
 <header>
     
         
+            
+        
     
 </header>
 
@@ -36,6 +38,87 @@
     <div class="container-overview">
     
         
+            <div class="description">Direct access to files (save, load, etc.) as well as housekeeping (cleaning up old files)</div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+    <dt class="tag-since">Since:</dt>
+    <dd class="tag-since"><ul class="dummy"><li>0.2.1</li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line3">line 3</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
     
@@ -64,7 +147,7 @@
     
 
     
-    <h4 class="name" id="~load"><span class="type-signature">(inner) </span>load<span class="signature">(type)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~cleanUpOldFiles"><span class="type-signature">(private, inner) </span>cleanUpOldFiles<span class="signature">(files)</span><span class="type-signature"></span></h4>
     
 
     
@@ -72,7 +155,144 @@
 
 
 <div class="description">
-    Returns an object from the specified type
+    Removes old files.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>files</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line56">line 56</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~findMostRecentFile"><span class="type-signature">(private, inner) </span>findMostRecentFile<span class="signature">(type)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Finds the most recent file of the specified type
 </div>
 
 
@@ -165,7 +385,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line20">line 20</a>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line44">line 44</a>
     </li></ul></dd>
     
 
@@ -201,7 +421,144 @@
     
 
     
-    <h4 class="name" id="~newFileName"><span class="type-signature">(inner) </span>newFileName<span class="signature">(filename)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="~load"><span class="type-signature">(inner) </span>load<span class="signature">(type)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Returns an object from the specified type of file
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">(arecord, crecord, or test)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line21">line 21</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~newFileName"><span class="type-signature">(private, inner) </span>newFileName<span class="signature">(filename)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -302,7 +659,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line31">line 31</a>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -364,7 +721,7 @@
 
 
 <div class="description">
-    Take object (hash), turn into JSON, save to new file
+    Take object (hash), turn into JSON, save to new file using an {@link module-model_behaviour:newFileName updated file name
 </div>
 
 
@@ -480,7 +837,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line11">line 11</a>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -532,7 +889,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Wed Mar 04 2020 10:32:09 GMT-0500 (Eastern Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Wed Mar 04 2020 11:07:08 GMT-0500 (Eastern Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -1,15 +1,16 @@
 let fs = require('fs').promises
 const path = require('path')
 /**
+ * @fileoverview Direct access to files (save, load, etc.) as well as housekeeping (cleaning up old files)
+ * @since 0.2.1
  * @module model_behaviour
  */
 /**
-   * Take object (hash), turn into JSON, save to new file
+   * Take object (hash), turn into JSON, save to new file using an {@link module-model_behaviour:newFileName updated file name
    * @param {object} data
    * @param {string} filename 
    */
 function save(data, filename) {
-  //first, change data into JSON
   const fileData = JSON.stringify(data)
   return fs.writeFile(newFileName(filename), fileData)
 }
@@ -25,6 +26,7 @@ function load(type) {
 
 /**
  * Returns the filename with a timestamp, to help avoid caching issues
+ * @private
  * @param {string} filename 
  * @returns {string} 
  */
@@ -36,6 +38,7 @@ function newFileName(filename){
 }
 /**
  * Finds the most recent file of the specified type
+ * @private
  * @param {string} type (arecord, crecord, or test)
  */
 function findMostRecentFile(type){
@@ -47,6 +50,7 @@ function findMostRecentFile(type){
 }
 /**
  * Removes old files.
+ * @private
  * @param {array} files 
  */
 function cleanUpOldFiles(files) {
