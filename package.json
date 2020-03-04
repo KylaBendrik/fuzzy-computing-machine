@@ -1,15 +1,16 @@
 {
   "name": "payroll-converter",
   "productName": "payroll-converter",
-  "version": "0.2.1",
-  "description": "My Electron application description",
-  "main": "src/index.js",
+  "version": "0.2.0",
+  "description": "Payroll Converter",
+  "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
+    "lint": "echo \"No linting configured\"",
+    "test": "ava"
   },
   "keywords": [],
   "author": {
@@ -41,18 +42,50 @@
           "name": "@electron-forge/maker-rpm",
           "config": {}
         }
+      ],
+      "plugins": [
+        [
+          "@electron-forge/plugin-webpack",
+          {
+            "mainConfig": "./webpack.main.config.js",
+            "renderer": {
+              "config": "./webpack.renderer.config.js",
+              "entryPoints": [
+                {
+                  "html": "./src/index.html",
+                  "js": "./src/renderer.js",
+                  "name": "main_window"
+                }
+              ]
+            }
+          }
+        ]
       ]
     }
   },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
-  },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.50",
-    "@electron-forge/maker-deb": "^6.0.0-beta.50",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.50",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.50",
-    "@electron-forge/maker-zip": "^6.0.0-beta.50",
-    "electron": "8.0.3"
+    "@electron-forge/cli": "^6.0.0-beta.49",
+    "@electron-forge/maker-deb": "^6.0.0-beta.49",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.49",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.49",
+    "@electron-forge/maker-zip": "^6.0.0-beta.49",
+    "@electron-forge/plugin-webpack": "^6.0.0-beta.49",
+    "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
+    "ava": "^3.3.0",
+    "css-loader": "^3.4.2",
+    "electron": "8.0.0",
+    "file-loader": "^5.0.0",
+    "jsdoc": "^3.6.3",
+    "node-loader": "^0.6.0",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^0.23.1",
+    "svelte-loader": "^2.13.6",
+    "svelte-preprocess": "^3.4.0",
+    "svelte-preprocess-sass": "^0.2.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "svelte": "^3.18.2"
   }
 }
