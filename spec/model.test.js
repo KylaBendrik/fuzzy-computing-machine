@@ -7,7 +7,7 @@ let testObj = {
 }
 
 test('resolves with data', t => {
-  return Model.save(testObj, 'test')
+  return Model.save(testObj, 'test/test')
   .then(result => {
     t.is(result, testObj)
   })
