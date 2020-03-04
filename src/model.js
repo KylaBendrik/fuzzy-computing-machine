@@ -1,12 +1,11 @@
 let fs = require('fs').promises
-const path = require('path')
 /**
  * @fileoverview Direct access to files (save, load, etc.) as well as housekeeping (cleaning up old files)
  * @since 0.2.1
- * @module model_behaviour
+ * @module Model_Behaviour
  */
 /**
-   * Take object (hash), turn into JSON, save to new file using an {@link module-model_behaviour:newFileName updated file name
+   * Take object (hash), turn into JSON, save to new file using an 
    * @param {object} data
    * @param {string} filename 
    */
@@ -15,7 +14,7 @@ function save(data, filename) {
   return fs.writeFile(newFileName(filename), fileData)
 }
 /**
- * Returns an object from the specified type of file 
+ * Returns an object from the specified type of file
  * @param {string} type (arecord, crecord, or test)
  */
 function load(type) {
@@ -23,10 +22,13 @@ function load(type) {
     .then(fs.readFile)
     .then(JSON.parse);
 }
-
+/**
+ * 
+ * @namespace private_methods
+ */
 /**
  * Returns the filename with a timestamp, to help avoid caching issues
- * @private
+ * @memberof module:Model_Behaviour~private_methods
  * @param {string} filename 
  * @returns {string} 
  */
@@ -38,19 +40,19 @@ function newFileName(filename){
 }
 /**
  * Finds the most recent file of the specified type
- * @private
+ * @memberof module:Model_Behaviour~private_methods
  * @param {string} type (arecord, crecord, or test)
  */
 function findMostRecentFile(type){
   return fs.readdir(`./data/${type}`)
     .then(cleanUpOldFiles)
-    .then(function(result) {
+    .then(function(files) {
       files.sort().reverse();
       resolve(files[0])});
 }
 /**
  * Removes old files.
- * @private
+ * @memberof module:Model_Behaviour~private_methods
  * @param {array} files 
  */
 function cleanUpOldFiles(files) {

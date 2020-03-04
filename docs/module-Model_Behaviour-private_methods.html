@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: Model_Behaviour</title>
+    <title>JSDoc: Namespace: private_methods</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: Model_Behaviour</h1>
+    <h1 class="page-title">Namespace: private_methods</h1>
 
     
 
@@ -28,8 +28,8 @@
 
 <header>
     
-        
-            
+        <h2>
+            <span class="ancestors"><a href="module-Model_Behaviour.html">Model_Behaviour</a>~</span>private_methods</h2>
         
     
 </header>
@@ -38,33 +38,14 @@
     <div class="container-overview">
     
         
-            <div class="description">Direct access to files (save, load, etc.) as well as housekeeping (cleaning up old files)</div>
-        
 
         
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <dl class="details">
 
     
 
-    
-    <dt class="tag-since">Since:</dt>
-    <dd class="tag-since"><ul class="dummy"><li>0.2.1</li></ul></dd>
     
 
     
@@ -90,7 +71,147 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line2">line 2</a>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line25">line 25</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id=".cleanUpOldFiles"><span class="type-signature">(static) </span>cleanUpOldFiles<span class="signature">(files)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Removes old files.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>files</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -121,40 +242,12 @@
 
 
         
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Namespaces</h3>
-
-        <dl>
-            <dt><a href="module-Model_Behaviour-private_methods.html">private_methods</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
             
 
     
 
     
-    <h4 class="name" id="~load"><span class="type-signature">(inner) </span>load<span class="signature">(type)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".findMostRecentFile"><span class="type-signature">(static) </span>findMostRecentFile<span class="signature">(type)</span><span class="type-signature"></span></h4>
     
 
     
@@ -162,7 +255,7 @@
 
 
 <div class="description">
-    Returns an object from the specified type of file
+    Finds the most recent file of the specified type
 </div>
 
 
@@ -255,7 +348,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line20">line 20</a>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -291,7 +384,7 @@
     
 
     
-    <h4 class="name" id="~save"><span class="type-signature">(inner) </span>save<span class="signature">(data, filename)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".newFileName"><span class="type-signature">(static) </span>newFileName<span class="signature">(filename)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -299,7 +392,7 @@
 
 
 <div class="description">
-    Take object (hash), turn into JSON, save to new file using an
+    Returns the filename with a timestamp, to help avoid caching issues
 </div>
 
 
@@ -331,29 +424,6 @@
     </thead>
 
     <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
     
 
         <tr>
@@ -415,7 +485,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="model.js.html">model.js</a>, <a href="model.js.html#line12">line 12</a>
+        <a href="model.js.html">model.js</a>, <a href="model.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -440,6 +510,24 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
