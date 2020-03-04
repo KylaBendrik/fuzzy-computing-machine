@@ -6,9 +6,9 @@ let testObj = {
   contact_phone: '5305589183'
 }
 
-test('resolves with data', t => {
-  return Model.save(testObj, 'test/test')
-  .then(result => {
-    t.is(result, testObj)
-  })
+test('loading works', t => {
+  return Model.load('test')
+    .then(result => {
+      t.deepEqual(result, testObj)
+    })
 })

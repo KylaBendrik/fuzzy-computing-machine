@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: dispatch.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,48 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: dispatch.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const Model = require('../src/model.js')
 
+/**
+ * @fileoverview Functions to fit into ipcMain.on; take messages, send to model
+ * @since 0.2.1
+ * @module Dispatch
+ */
+/**
+ * @constant
+ */
+const INFOGROUPS = {
+    'testA': {folder: 'test', keys: ['contact_name', 'contact_phone']},
+    'contact info': {folder: 'arecord', keys: ['contact_email', 'contact_phone', 'contact_fax', 'contact_name']}
+}
+/**
+ * Asks for hash to populate pages and forms
+ * @param {string} dataType form type
+ * @returns {object} returns useful hash for populating the form
+ */
+ function loadData(dataType){
+  folder = INFOGROUPS[dataType].folder
+  keys = INFOGROUPS[dataType].keys
 
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+   //load /arecord/most_recent_file
+  Model.load(folder)
+    .then(result => {
+      
+    })
+ }
+ 
+ module.exports = { loadData }</code></pre>
+        </article>
+    </section>
 
 
 
