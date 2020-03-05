@@ -6,11 +6,12 @@ const Model = require('../src/model.js')
  * @module Dispatch
  */
 /**
+ * Lists folder and keys, to help loadData()
  * @constant
  */
 const INFOGROUPS = {
     'test_onlyName': {folder: 'test', keys: ['contact_name']},
-    'contact info': {folder: 'arecord', keys: ['contact_email', 'contact_phone', 'contact_fax', 'contact_name']}
+    'contactInfo': {folder: 'arecord', keys: ['contact_email', 'contact_phone', 'contact_fax', 'contact_name']}
 }
 /**
  * Asks for hash to populate pages and forms
@@ -25,5 +26,21 @@ function loadData(infoGroup) {
       keys.reduce((acc, key) => ({ ...acc, [key]: result[key] }), {})
     );
 }
+/**
+ * Gently saves the data
+ * @param {string} infoGroup form type
+ * @param {object} data hash
+ */
+function saveData(infoGroup, data) {
+  const folder = INFOGROUPS[infoGroup].folder;
+  const keys = INFOGROUPS[infoGroup].keys;
+  //we need to read the data, add in our bits, and then save everything
+  return Model
+  .load(folder)
+  .then(oldData => {
+    const newData = Object.assign({}, oldData, data)
+    
+    return Model.save(newData, folder)});
+}
  
- module.exports = { loadData }
+ module.exports = { loadData, saveData}
