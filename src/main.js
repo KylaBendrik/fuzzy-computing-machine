@@ -18,12 +18,14 @@ const createWindow = () => {
       nodeIntegration: false,
       sandbox: true,
 
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+
       preload: path.join(app.getAppPath(), 'src/preload.js')
     }
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(MAIN_WINDOW_WEBPACK_ENTRY);
+  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
