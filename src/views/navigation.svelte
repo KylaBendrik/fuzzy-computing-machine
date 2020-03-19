@@ -15,6 +15,7 @@
   function navigate(event) {
     event.preventDefault();
     currentPage = event.target.dataset.pageId;
+    console.log(currentPage)
   }
 
   $: if (currentPage == '0'){
@@ -42,6 +43,7 @@
     });
   }
   function pickOrganization(){
+    console.log('pickOrganization')
     dispatch('message', {
       destination: "Organization",
       title: "Organization Info"
