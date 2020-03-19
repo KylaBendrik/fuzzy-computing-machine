@@ -1,4 +1,7 @@
 $base_color: #007681;
+$article_color: mix(white, $base_color, 70%);
+$button_color: mix(white, $base_color, 30%);
+
 main {
   font-family: Candara, Verdana, sans-serif;
 }
@@ -26,5 +29,11 @@ nav {
 }
 
 main {
-  background-color: mix(white, $base_color, 70%);
+  background-color: $article_color;
+}
+h6 {
+  font-style: italic;
+  font-weight: normal;
+  margin: 0;
+  font-size: 1em;
 }

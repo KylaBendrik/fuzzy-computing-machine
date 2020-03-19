@@ -3,14 +3,14 @@
 
   import Dashboard from "./views/dashboard.svelte";
   import MyInfo from "./views/my_info.svelte";
-  import OrgInfo from "./views/org_info.svelte";
+  import Organization from "./views/org_info.svelte";
 
   let selected = {
     component: Dashboard,
     title: "Dashboard"
   }
 
-  const pages = { Dashboard, MyInfo, OrgInfo };
+  const pages = { Dashboard, MyInfo, Organization };
 
   function handleMessage(event) {
     selected.component = pages[event.detail.destination];
