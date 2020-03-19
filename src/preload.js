@@ -1,7 +1,8 @@
 const {contextBridge, ipcRenderer} = require('electron')
 
 contextBridge.exposeInMainWorld('MainAPI', {
-  loadInfo(infoGroup) {
+  loadData(infoGroup) {
+    console.log("loadData(): preload.js")
     return new Promise((resolve, _reject) => {
       ipcRenderer.once(`${infoGroup}_load/response`,
       (_event, data) => resolve(data));
@@ -9,7 +10,9 @@ contextBridge.exposeInMainWorld('MainAPI', {
       ipcRenderer.send(`${infoGroup}_load`, {})
     })
   },
-  saveInfo(infoGroup, data) {
+  saveData(infoGroup, data) {
+    console.log("saveData(): preload.js")
+    console.log(`send ${infoGroup}_save`)
     return new Promise((resolve, _reject) => {
       ipcRenderer.once(`${infoGroup}_save/response`,
         (event) => resolve(event));

@@ -10,8 +10,10 @@ let fs = require('fs').promises
    * @param {string} filename 
    */
 function save(data, filename, folder) {
+  console.log(`save(${data}, ${filename}, ${folder}) - model.js`)
   const fileData = JSON.stringify(data)
-  return fs.writeFile(newFileName(filename, folder), fileData)
+  const newFile = newFileName(filename, folder)
+  return fs.writeFile(newFile, fileData)
 }
 /**
  * Returns an object from the specified type of file
@@ -22,6 +24,7 @@ function save(data, filename, folder) {
  * load('test');
  */
 function load(folder) {
+  console.log(`load(${folder}) - model.js`)
   return findMostRecentFile(folder)
     .then(fs.readFile)
     .then(JSON.parse);
@@ -37,10 +40,12 @@ function load(folder) {
  * @returns {string} 
  */
 function newFileName(filename, folder){
+  console.log(`newFileName(${filename}, ${folder}) - model.js`)
   let d = new Date();
   let n = d.getTime();
 
-  return `${folder}/${filename}${n}.json`
+  console.log(`new file name: ${folder}/${filename}${n}.json`)
+  return `data/${folder}/${filename}${n}.json`
 }
 /**
  * Finds the most recent file of the specified type
@@ -48,8 +53,9 @@ function newFileName(filename, folder){
  * @param {string} folder (arecord, crecord, or test)
  */
 function findMostRecentFile(folder){
+  console.log(`findMostRecentFile(${folder}) - model.js`)
   return fs.readdir(`./data/${folder}`)
-    .then(cleanUpOldFiles)
+    .then(result => cleanUpOldFiles(result, folder))
     .then(function(files) {
       files.sort().reverse();
       return(`./data/${folder}/${files[0]}`)});
@@ -59,10 +65,11 @@ function findMostRecentFile(folder){
  * @memberof module:Model~private_methods
  * @param {array} files 
  */
-function cleanUpOldFiles(files) {
+function cleanUpOldFiles(files, folder) {
+  console.log(`cleanUpOldFiles(${files}) - model.js`)
   return new Promise((resolve, _reject) => {
     if (files.length > 3) {
-      fs.unlink(`${files[1]}`, function (err) {
+      fs.unlink(`data/${folder}/${files[1]}`, function (err) {
         if (err) throw err;
       })
       

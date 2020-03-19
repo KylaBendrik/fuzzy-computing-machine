@@ -1,18 +1,19 @@
 <script>
+  import Navigation from "./views/navigation.svelte";
+
   import Dashboard from "./views/dashboard.svelte";
+  import MyInfo from "./views/my_info.svelte";
 
   let selected = {
     component: Dashboard,
     title: "Dashboard"
   }
 
-  const pages = { Dashboard };
+  const pages = { Dashboard, MyInfo };
 
   function handleMessage(event) {
-    console.log('handleMessage')
     selected.component = pages[event.detail.destination];
     selected.title = event.detail.title;
-    console.log(selected.title)
   }
   
 </script>
@@ -24,14 +25,7 @@
 <main>
   <header>{selected.title}</header>
   <nav>
-    <ol>
-      <li><a href="dashboard">Dashboard</a></li>
-      <li><a href="employees">Employees</a></li>
-      <li><a href="export">Export</a></li>
-      <li><a href="orginfo">Organization</a></li>
-      <li><a href="myinfo">My Info</a></li>
-    </ol>
-  
+    <Navigation on:message={handleMessage}/>
   </nav>
   <article>
     <svelte:component this={selected.component}/>

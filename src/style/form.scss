@@ -1,0 +1,32 @@
+@import "src/style/template.scss";
+
+label {
+  display: inline;
+  font-size: 20px;
+}
+input {
+  font-size: 20px;
+  border: none;
+  transition-duration: 0.5s;
+}
+input[type=text] {
+  background: mix(white, $base_color, 65%);
+  line-height: 30px;
+}
+input:hover {
+  background: mix(white, $base_color, 30%);
+}
+button {
+  border: none;
+  background: mix(white, $base_color, 50%);
+  padding: 15px;
+  transition-duration: 0.5s;
+}
+button:hover {
+  background: mix(white, $base_color, 30%);
+}
+.field {
+  width: 350px;
+  margin: 10px;
+  text-align: right;
+}

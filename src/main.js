@@ -60,14 +60,23 @@ const namespaces = ['contactInfo', 'financialInfo', 'personalInfo', 'orgInfo']
 
 for (const namespace of namespaces)  {
   ipcMain.on(`${namespace}_load`, (event, _data) => {
+    console.log(`${namespace}_load: main.js`)
     Dispatch
       .loadData(namespace)
       .then(result => event.reply(`${namespace}_load/response`, result));
   });
 
   ipcMain.on(`${namespace}_save`, (event, data) => {
+    console.log(`${namespace}_save: main.js`)
     Dispatch
       .saveData(namespace, data)
       .then(() => event.reply(`${namespace}_save/response`));
   });
 }
+
+ipcMain.on(`contactInfo_save`, (event, data) => {
+  console.log(`contactInfo_save: main.js`)
+  Dispatch
+    .saveData('contactInfo', data)
+    .then(() => event.reply(`contactInfo_save/response`));
+});
