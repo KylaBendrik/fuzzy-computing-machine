@@ -16,7 +16,7 @@
 
   
 </script>
-<a href="/view_employee" on:click={updatePageNum(id)} data-page-id="10">Add Employee</a>
+<button on:click={() => updatePageNum('10')}>Add Employee</button>
 <table>
   <tr>
     {#each fields as field}

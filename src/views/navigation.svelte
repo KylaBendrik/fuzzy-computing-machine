@@ -12,6 +12,7 @@
   ]
 
   const unsubscribe = page_num.subscribe(value => {
+    console.log(`value: ${value}`)
     if (value == '0'){
     pickExport();
   } else if (value == '1') {
@@ -23,7 +24,7 @@
   } else if (value == '4') {
     pickMyInfo();
   } else if (value == '10') {
-    pickMyInfo();
+    pickAddEmployee();
   } 
   })
 
