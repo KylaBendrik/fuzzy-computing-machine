@@ -9,9 +9,11 @@ const Model = require('../src/model.js')
  * Lists folder and keys, to help loadData()
  * @constant
  */
+
 const INFOGROUPS = {
     'test_onlyName': {folder: 'test', keys: ['contact_name']},
-    'contactInfo': {folder: 'contact_info', keys: ['contact_email', 'contact_phone', 'contact_fax', 'contact_name']}
+    'contactInfo': {folder: 'contact_info', keys: ['contact_email', 'contact_phone', 'contact_fax', 'contact_name']},
+    'orgInfo': {folder: 'org_info', keys: ['pr_ctr_name', 'pr_ctr_id', 'pr_refs']}
 }
 /**
  * Asks for hash to populate pages and forms

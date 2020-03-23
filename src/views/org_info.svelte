@@ -30,8 +30,8 @@
   }
 
   MainAPI
-    .loadData('contactInfo')
-    .then(contactInfo => contactFormData = contactInfo)
+    .loadData('orgInfo')
+    .then(orgInfo => orgFormData = orgInfo)
 </script>
 
 <style type="text/scss">

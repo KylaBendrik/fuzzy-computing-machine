@@ -1,64 +1,72 @@
 <script>
   import { createEventDispatcher } from 'svelte'
+  import { page_num } from '../stores.js';
   const dispatch = createEventDispatcher();
 
-  let pages = [
+  let main_pages = [
     {id: '0', name: 'Export', href:'/export'},
     {id: '1', name: 'Dashboard', href:'/dashboard'},
     {id: '2', name: 'Organization', href:'/org_info'},
     {id: '3', name: 'Employees', href:'/employees'},
-    {id: '4', name: 'My Info', href:'/my_info'},
+    {id: '4', name: 'My Info', href:'/my_info'}
   ]
 
-  let currentPage = '1';
+  const unsubscribe = page_num.subscribe(value => {
+    if (value == '0'){
+    pickExport();
+  } else if (value == '1') {
+    pickDashboard();
+  } else if (value == '2') {
+    pickOrganization();
+  } else if (value == '3') {
+    pickEmployees();
+  } else if (value == '4') {
+    pickMyInfo();
+  } else if (value == '10') {
+    pickMyInfo();
+  } 
+  })
 
   function navigate(event) {
     event.preventDefault();
-    currentPage = event.target.dataset.pageId;
-    console.log(currentPage)
-  }
-
-  $: if (currentPage == '0'){
-    pickExport();
-  } else if (currentPage == '1') {
-    pickDashboard();
-  } else if (currentPage == '2') {
-    pickOrganization();
-  } else if (currentPage == '3') {
-    pickEmployees();
-  } else if (currentPage == '4') {
-    pickMyInfo();
+    page_num.set(event.target.dataset.pageId);
   }
 
   function pickExport(){
-    dispatch('message', {
+    dispatch('navmessage', {
       destination: "Export",
       title: "Export"
     });
   }
   function pickDashboard(){
-    dispatch('message', {
+    dispatch('navmessage', {
       destination: "Dashboard",
       title: "Dashboard"
     });
   }
   function pickOrganization(){
     console.log('pickOrganization')
-    dispatch('message', {
+    dispatch('navmessage', {
       destination: "Organization",
       title: "Organization Info"
     });
   }
   function pickEmployees(){
-    dispatch('message', {
+    dispatch('navmessage', {
       destination: "Employees",
       title: "View All Employees"
     });
   }
   function pickMyInfo(){
-    dispatch('message', {
+    dispatch('navmessage', {
       destination: "MyInfo",
       title: "My Information"
+    });
+  }
+  function pickAddEmployee(){
+    dispatch('navmessage', {
+      destination: "AddEmployee",
+      title: "Add Employee"
     });
   }
 </script>
@@ -68,11 +76,11 @@
 </style>
 
 <ol>
-  {#each pages as {id, name, href}, i}
+  {#each main_pages as {id, name, href}, i}
     <li><a {href} 
       data-page-id="{id}"
       on:click={navigate}
-      class="page-{currentPage === id ? 'active' : 'inactive'}">
+      class="page-{page_num === id ? 'active' : 'inactive'}">
       {name}
       </a>
     </li>
