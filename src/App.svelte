@@ -7,17 +7,21 @@
   import Employees from "./views/employees.svelte";
 
   import AddEmployee from "./views/view_employee.svelte";
+  
+  import ViewEmployee from "./views/view_employee.svelte";
 
   let selected = {
     component: Dashboard,
-    title: "Dashboard"
+    title: "Dashboard",
+    params: {}
   }
 
-  const pages = { Dashboard, MyInfo, Organization, Employees, AddEmployee };
+  const pages = { Dashboard, MyInfo, Organization, Employees, AddEmployee, ViewEmployee };
 
   function handleMessage(event) {
     selected.component = pages[event.detail.destination];
     selected.title = event.detail.title;
+    selected.params = event.detail.params;
   }
   
 </script>

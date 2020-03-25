@@ -1,22 +1,24 @@
 <script>
-  import { page_num } from '../stores.js';
+  import { page } from '../stores.js';
+  import { get } from 'svelte/store';
 
   let fields = [
-      {header: "First Name", value: "first_name"},
-      {header: "Last Name", value: "last_name"}
-    ]
+    {header: "First Name", value: "first_name"},
+    {header: "Middle Name", value: "middle_name"},
+    {header: "Last Name", value: "last_name"}
+  ]
   let employees=[
-    {first_name: "John", last_name: "Doe"},
-    {first_name: "Jane", last_name: "Doe"}
+    {first_name: "John", middle_name:"Adam", last_name: "Doe"},
+    {first_name: "Jane", middle_name:"Eve", last_name: "Doe"}
   ]
 
-  function updatePageNum(id){
-    page_num.set(id)
+  function updatePageNum(new_id, params){
+    page.set({id: new_id, params: params})
   }
 
   
 </script>
-<button on:click={() => updatePageNum('10')}>Add Employee</button>
+<button on:click={() => updatePageNum('10', {})}>Add Employee</button>
 <table>
   <tr>
     {#each fields as field}
@@ -25,7 +27,7 @@
   </tr>
   
   {#each employees as employee}
-    <tr>
+    <tr on:click={() => updatePageNum('11', employee)}>
       {#each fields as field}
         <td>{employee[field.value]}</td>
       {/each}

@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte'
-  import { page_num } from '../stores.js';
+  import { page } from '../stores.js';
   const dispatch = createEventDispatcher();
 
   let main_pages = [
@@ -11,26 +11,28 @@
     {id: '4', name: 'My Info', href:'/my_info'}
   ]
 
-  const unsubscribe = page_num.subscribe(value => {
-    console.log(`value: ${value}`)
-    if (value == '0'){
+  const unsubscribe = page.subscribe(value => {
+    console.log(`id: ${value.id}, params: ${JSON.stringify(value.params)}`)
+    if (value.id == '0'){
     pickExport();
-  } else if (value == '1') {
+  } else if (value.id == '1') {
     pickDashboard();
-  } else if (value == '2') {
+  } else if (value.id == '2') {
     pickOrganization();
-  } else if (value == '3') {
+  } else if (value.id == '3') {
     pickEmployees();
-  } else if (value == '4') {
+  } else if (value.id == '4') {
     pickMyInfo();
-  } else if (value == '10') {
+  } else if (value.id == '10') {
     pickAddEmployee();
-  } 
+  } else if (value.id == '11') {
+    pickViewEmployee();
+  }
   })
 
   function navigate(event) {
     event.preventDefault();
-    page_num.set(event.target.dataset.pageId);
+    page.set({id: event.target.dataset.pageId, params: event.target.dataset.params});
   }
 
   function pickExport(){
@@ -70,6 +72,12 @@
       title: "Add Employee"
     });
   }
+  function pickViewEmployee(){
+    dispatch('navmessage', {
+      destination: "ViewEmployee",
+      title: "View Employee"
+    })
+  }
 </script>
 
 <style type="text/scss">
@@ -81,7 +89,7 @@
     <li><a {href} 
       data-page-id="{id}"
       on:click={navigate}
-      class="page-{page_num === id ? 'active' : 'inactive'}">
+      class="page-{page === id ? 'active' : 'inactive'}">
       {name}
       </a>
     </li>
