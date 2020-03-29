@@ -9,19 +9,20 @@ const Model = require('../src/model.js')
  * Lists folder and keys, to help loadData()
  * @constant
  */
-
+ 
 const INFOGROUPS = {
     'test_onlyName': {folder: 'test', keys: ['contact_name']},
     'contactInfo': {folder: 'contact_info', keys: ['contact_email', 'contact_phone', 'contact_fax', 'contact_name']},
-    'orgInfo': {folder: 'org_info', keys: ['pr_ctr_name', 'pr_ctr_id', 'pr_refs']}
-}
+    'orgInfo': {folder: 'org_info', keys: ['pr_ctr_name', 'pr_ctr_id', 'pr_refs']},
+    'employeesInfo': {folder: 'employees', keys:['employees']}
+    }
 /**
  * Asks for hash to populate pages and forms
  * @param {string} infoGroup form type
  * @returns {object} returns useful hash for populating the form
  */
 function loadData(infoGroup) {
-  console.log('loadData: dispatch.js')
+  console.log(`loadData(${infoGroup}): dispatch.js`)
   const folder = INFOGROUPS[infoGroup].folder;
   const keys = INFOGROUPS[infoGroup].keys;
   return Model.load(folder)
@@ -35,7 +36,6 @@ function loadData(infoGroup) {
  * @param {object} data hash
  */
 function saveData(infoGroup, data) {
-  console.log(`saveData(${infoGroup}, $data) dispatch.js`)
   const folder = INFOGROUPS[infoGroup].folder;
   // const keys = INFOGROUPS[infoGroup].keys;
   //we need to read the data, add in our bits, and then save everything
@@ -43,7 +43,6 @@ function saveData(infoGroup, data) {
   .load(folder)
   .then(oldData => {
     const newData = Object.assign({}, oldData, data)
-    console.log(`folder inside promise: ${folder}`)
     return Model.save(newData, folder, folder)});
 }
  

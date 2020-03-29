@@ -2,7 +2,7 @@ const {contextBridge, ipcRenderer} = require('electron')
 
 contextBridge.exposeInMainWorld('MainAPI', {
   loadData(infoGroup) {
-    console.log("loadData(): preload.js")
+    console.log(`loadData(${infoGroup}): preload.js`)
     return new Promise((resolve, _reject) => {
       ipcRenderer.once(`${infoGroup}_load/response`,
       (_event, data) => resolve(data));
