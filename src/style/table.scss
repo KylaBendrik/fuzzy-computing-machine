@@ -1,0 +1,31 @@
+@import "src/style/colors.scss";
+
+$table_color: mix(white, $base_color, 60%);
+
+table {
+  margin-top: 10px;
+  width: 60vw;
+}
+
+tr {
+  background: mix(white, $base_color, 70%);
+  transition-duration: 0.5s;
+}
+
+tr:nth-child(even) {
+  background: mix(white, $base_color, 60%);
+  transition-duration: 0.5s;
+}
+
+tr:hover {
+  background: mix(white, $base_color, 50%);
+}
+
+th {
+  background: mix(white, $base_color, 40%);
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}

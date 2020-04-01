@@ -1,0 +1,34 @@
+@import "src/style/colors.scss";
+
+header, article {
+  padding: 20px;
+}
+  
+header {
+  background-color: $base_color;
+  background: linear-gradient(90deg, mix(white, $base_color, 50%), $base_color);
+  color: white;
+
+  font-size: 75px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: right;
+  line-height: 160px;
+}
+
+nav {
+  background-color: mix(black, $base_color, 50%);
+  color: mix(white, $base_color, 50%);
+  text-align: right;
+}
+
+main {
+  font-family: Candara, Verdana, sans-serif;
+  background-color: $article_color;
+}
+h6 {
+  font-style: italic;
+  font-weight: normal;
+  margin: 0;
+  font-size: 1em;
+}

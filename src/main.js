@@ -1,5 +1,6 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const Dispatch = require('./dispatch')
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
@@ -9,12 +10,22 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1000,
+    height: 800,
+    webPreferences: {
+      contextIsolation: true,
+      enableRemoteModule: false,
+      nodeIntegration: false,
+      sandbox: true,
+
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
+
+      preload: path.join(app.getAppPath(), 'src/preload.js')
+    }
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, '/views/index.html'));
+  mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
@@ -44,3 +55,21 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+const namespaces = ['contactInfo', 'financialInfo', 'personalInfo', 'orgInfo', 'employeesInfo', 'employees']
+
+for (const namespace of namespaces)  {
+  ipcMain.on(`${namespace}_load`, (event, _data) => {
+    console.log(`${namespace}_load: main.js`)
+    Dispatch
+      .loadData(namespace)
+      .then(result => event.reply(`${namespace}_load/response`, result));
+  });
+
+  ipcMain.on(`${namespace}_save`, (event, data) => {
+    console.log(`${namespace}_save: main.js`)
+    Dispatch
+      .saveData(namespace, data)
+      .then(() => event.reply(`${namespace}_save/response`));
+  });
+}

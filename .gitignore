@@ -87,3 +87,8 @@ typings/
 
 # Electron-Forge
 out/
+
+data/contact_info/
+data/employees/
+data/org_info/
+
