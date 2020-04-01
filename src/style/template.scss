@@ -1,10 +1,4 @@
-$base_color: #007681;
-$article_color: mix(white, $base_color, 70%);
-$button_color: mix(white, $base_color, 30%);
-
-main {
-  font-family: Candara, Verdana, sans-serif;
-}
+@import "src/style/colors.scss";
 
 header, article {
   padding: 20px;
@@ -29,6 +23,7 @@ nav {
 }
 
 main {
+  font-family: Candara, Verdana, sans-serif;
   background-color: $article_color;
 }
 h6 {

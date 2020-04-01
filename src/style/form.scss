@@ -1,7 +1,4 @@
-@import "src/style/template.scss";
-
-$input_color: mix(white, $base_color, 50%);
-$field_color: mix(white, $base_color, 40%);
+@import "src/style/colors.scss";
 
 ul, li {
   list-style-type: none;
@@ -27,14 +24,14 @@ input {
   font-family: Candara, Verdana, sans-serif;
 }
 input[type=text] {
-  background: mix(white, $base_color, 65%);
+  background: $text_input_color;
   line-height: 30px;
   width: 300px;
   padding: 4px;
   width: 50vw;
 }
 input:hover {
-  background: mix(white, $base_color, 30%);
+  background: $button_color;
 }
 button {
   border: none;
@@ -46,7 +43,7 @@ button {
 }
 button:hover {
   display: inline-block;
-  background: mix($base_color, $button_color, 70%);
+  background: $base_color;
 }
 .field {
   width: 600px;

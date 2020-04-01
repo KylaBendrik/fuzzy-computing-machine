@@ -34,8 +34,13 @@ function save() {
     console.log("save()")
     MainAPI
     .saveData('employees', employee)
+    .updatePageNum('3', {})
     //.then(updateStatus)
   }
+
+function updatePageNum(new_id, params){
+  page.set({id: new_id, params: params})
+}
 </script>
 <style type="text/scss">
   @import "src/style/form.scss";

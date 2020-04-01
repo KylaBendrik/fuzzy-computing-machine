@@ -1,4 +1,4 @@
-import App from './app.svelte';
+import App from './App.svelte';
 import './style/main.css';
 //import './views/fonts/fonts.scss';
 
