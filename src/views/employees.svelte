@@ -27,12 +27,10 @@
   @import "src/style/table.scss";
 </style>
 <button on:click={() => updatePageNum('10', {})}>Add Employee</button>
-{JSON.stringify(employeesData)}
 {#await loadingEmployees}
   loading...
 {:then employeesData}
-{JSON.stringify(employeesData)}
-  <!-- <table>
+  <table>
     <tr>
       {#each fields as field}
         <th>{field.header}</th>
@@ -46,7 +44,7 @@
         {/each}
       </tr>
     {/each}
-  </table> -->
+  </table>
 {:catch error}
   There's a problem!
 {/await}

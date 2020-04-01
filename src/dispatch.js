@@ -14,7 +14,8 @@ const INFOGROUPS = {
     'test_onlyName': {folder: 'test', keys: ['contact_name']},
     'contactInfo': {folder: 'contact_info', keys: ['contact_email', 'contact_phone', 'contact_fax', 'contact_name']},
     'orgInfo': {folder: 'org_info', keys: ['pr_ctr_name', 'pr_ctr_id', 'pr_refs']},
-    'employeesInfo': {folder: 'employees', keys:['employees']}
+    'employeesInfo': {folder: 'employees', keys:['employees']},
+    'employees': {folder: 'employees', keys:['employees']}
     }
 /**
  * Asks for hash to populate pages and forms
@@ -36,14 +37,42 @@ function loadData(infoGroup) {
  * @param {object} data hash
  */
 function saveData(infoGroup, data) {
+  
   const folder = INFOGROUPS[infoGroup].folder;
-  // const keys = INFOGROUPS[infoGroup].keys;
-  //we need to read the data, add in our bits, and then save everything
-  return Model
-  .load(folder)
-  .then(oldData => {
-    const newData = Object.assign({}, oldData, data)
-    return Model.save(newData, folder, folder)});
+
+  if (infoGroup === "employees"){
+
+    return Model
+    .load(folder)
+    .then(oldData => {
+      let employees_list = oldData["employees"]
+      console.log(`Id: ${data.id}`)
+
+      let old_employee = employees_list.find(element => element.id === data.id)
+
+      if (old_employee != undefined){
+        data = Object.assign({}, old_employee, data)
+        employees_list = employees_list.filter(function(value, index, arr){
+          return value.id != data.id
+        })
+      }
+      console.log(`employees_list: ${JSON.stringify(employees_list)}; data: ${JSON.stringify(data)}`)
+      
+      employees_list.push(data)
+      console.log(`pushed: ${JSON.stringify(employees_list)}`)
+      return Model.save({employees: employees_list}, folder, folder)});
+
+  } else {
+    // const keys = INFOGROUPS[infoGroup].keys;
+    //we need to read the data, add in our bits, and then save everything
+    return Model
+    .load(folder)
+    .then(oldData => {
+      const newData = Object.assign({}, oldData, data)
+      return Model.save(newData, folder, folder)});
+  }
+  
 }
+
  
  module.exports = { loadData, saveData}

@@ -11,7 +11,7 @@ contextBridge.exposeInMainWorld('MainAPI', {
     })
   },
   saveData(infoGroup, data) {
-    console.log("saveData(): preload.js")
+    console.log(`saveData(${JSON.stringify(data)}): preload.js`)
     console.log(`send ${infoGroup}_save`)
     return new Promise((resolve, _reject) => {
       ipcRenderer.once(`${infoGroup}_save/response`,

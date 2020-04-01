@@ -3,6 +3,7 @@ import { page } from '../stores.js';
 import { get } from 'svelte/store';
 
 let fields = [
+    {header: "ID", value: "id"},
     {header: "First Name", value: "first_name"},
     {header: "Middle Name", value: "middle_name"},
     {header: "Last Name", value: "last_name"},
@@ -34,7 +35,7 @@ function save() {
     console.log("save()")
     MainAPI
     .saveData('employees', employee)
-    .updatePageNum('3', {})
+    .then(updatePageNum('3', {}))
     //.then(updateStatus)
   }
 

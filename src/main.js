@@ -56,7 +56,7 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 
-const namespaces = ['contactInfo', 'financialInfo', 'personalInfo', 'orgInfo', 'employeesInfo']
+const namespaces = ['contactInfo', 'financialInfo', 'personalInfo', 'orgInfo', 'employeesInfo', 'employees']
 
 for (const namespace of namespaces)  {
   ipcMain.on(`${namespace}_load`, (event, _data) => {
@@ -73,17 +73,3 @@ for (const namespace of namespaces)  {
       .then(() => event.reply(`${namespace}_save/response`));
   });
 }
-
-ipcMain.on(`contactInfo_save`, (event, data) => {
-  console.log(`contactInfo_save: main.js`)
-  Dispatch
-    .saveData('contactInfo', data)
-    .then(() => event.reply(`contactInfo_save/response`));
-});
-
-ipcMain.on(`employeesInfo_load`, (event, _data) => {
-  console.log(`employeesInfo_load: main.js`)
-  Dispatch
-    .loadData('contactInfo')
-    .then(result => event.reply(`employeesInfo_load/response`, result));
-});
