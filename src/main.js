@@ -71,5 +71,12 @@ for (const namespace of namespaces)  {
     Dispatch
       .saveData(namespace, data)
       .then(() => event.reply(`${namespace}_save/response`));
-  });
+  }); 
 }
+ipcMain.on(`export`, (event, data) => {
+  console.log(`export: main.js`)
+  console.log(data)
+  Dispatch
+    .exportData(data)
+    .then(() => event.reply(`export/response`));
+});

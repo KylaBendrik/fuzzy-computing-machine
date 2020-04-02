@@ -17,6 +17,12 @@ const INFOGROUPS = {
     'employeesInfo': {folder: 'employees', keys:['employees']},
     'employees': {folder: 'employees', keys:['employees']}
     }
+
+function exportData(data) {
+  console.log('reached exportData: dispatch.js')
+  console.log(data)
+  return Model.saveExport(data)
+}
 /**
  * Asks for hash to populate pages and forms
  * @param {string} infoGroup form type
@@ -75,4 +81,4 @@ function saveData(infoGroup, data) {
 }
 
  
- module.exports = { loadData, saveData}
+ module.exports = { loadData, saveData, exportData}

@@ -37,7 +37,7 @@ function save() {
     .saveData('employees', employee)
     .then(updatePageNum('3', {}))
     //.then(updateStatus)
-  }
+}
 
 function updatePageNum(new_id, params){
   page.set({id: new_id, params: params})

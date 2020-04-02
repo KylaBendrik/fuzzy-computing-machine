@@ -19,5 +19,15 @@ contextBridge.exposeInMainWorld('MainAPI', {
       
       ipcRenderer.send(`${infoGroup}_save`, data)
     })
+  },
+  exportData(data) {
+    console.log(`exportData(data): preload.js)`)
+    console.log(data)
+    return new Promise((resolve, _reject) => {
+      ipcRenderer.once(`export/response`,
+      (event) => resolve(event));
+
+      ipcRenderer.send(`export`, data)
+    })
   }
 })

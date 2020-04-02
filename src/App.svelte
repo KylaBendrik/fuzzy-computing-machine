@@ -5,6 +5,7 @@
   import MyInfo from "./views/my_info.svelte";
   import Organization from "./views/org_info.svelte";
   import Employees from "./views/employees.svelte";
+  import Export from "./views/export.svelte";
 
   import AddEmployee from "./views/view_employee.svelte";
   
@@ -16,7 +17,7 @@
     params: {}
   }
 
-  const pages = { Dashboard, MyInfo, Organization, Employees, AddEmployee, ViewEmployee };
+  const pages = { Dashboard, MyInfo, Organization, Employees, AddEmployee, ViewEmployee, Export };
 
   function handleMessage(event) {
     selected.component = pages[event.detail.destination];

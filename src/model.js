@@ -1,9 +1,29 @@
 let fs = require('fs').promises
+const { dialog } = require('electron');
 /**
  * @fileoverview Direct access to files (save, load, etc.) as well as housekeeping (cleaning up old files)
  * @since 0.2.1
  * @module Model
  */
+function saveExport(){
+  let d = new Date();
+  let n = d.getTime(); 
+
+  var options = {
+    title: "Export File",
+    defaultPath: `Export_${n}`,
+    buttonLabel: "Export",
+
+    filters:[
+      {name: 'txt', extensions: ['txt']},
+      {name: 'All Files', extensions: ['*']}
+    ]
+  }
+
+  dialog.showSaveDialog( options, (filename) => {
+    fs.writeFileSync(filename, "hello world", 'utf-8')
+  })
+}
 /**
    * Take object (hash), turn into JSON, save to new file using an 
    * @param {object} data
@@ -77,4 +97,4 @@ function cleanUpOldFiles(files, folder) {
     resolve(files)
   })
 }
-module.exports = { save, load }
+module.exports = { save, load, saveExport }
