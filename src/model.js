@@ -20,9 +20,9 @@ function saveExport(data){
     ]
   }
 
-  dialog.showSaveDialog( options, (filename) => {
-    fs.writeFileSync(filename, data, 'utf-8')
-  })
+  return dialog
+    .showSaveDialog( options)
+    .then(({ filePath }) => fs.writeFile(filePath, data, 'utf-8'))
 }
 /**
    * Take object (hash), turn into JSON, save to new file using an 
