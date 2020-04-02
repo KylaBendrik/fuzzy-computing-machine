@@ -5,7 +5,7 @@ const { dialog } = require('electron');
  * @since 0.2.1
  * @module Model
  */
-function saveExport(){
+function saveExport(data){
   let d = new Date();
   let n = d.getTime(); 
 
@@ -21,7 +21,7 @@ function saveExport(){
   }
 
   dialog.showSaveDialog( options, (filename) => {
-    fs.writeFileSync(filename, "hello world", 'utf-8')
+    fs.writeFileSync(filename, data, 'utf-8')
   })
 }
 /**
