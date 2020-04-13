@@ -15,12 +15,13 @@ const INFOGROUPS = {
     'contactInfo': {folder: 'contact_info', keys: ['contact_email', 'contact_phone', 'contact_fax', 'contact_name']},
     'orgInfo': {folder: 'org_info', keys: ['pr_ctr_name', 'pr_ctr_id', 'pr_refs']},
     'employeesInfo': {folder: 'employees', keys:['employees']},
-    'employees': {folder: 'employees', keys:['employees']}
+    'employees': {folder: 'employees', keys:['employees']},
+    'packageInfo': {folder: 'package_info', keys:['version', 'description']}
     }
 
 function exportData(data) {
   console.log('reached exportData: dispatch.js')
-  console.log(data)
+  console.log(JSON.stringify(data))
   return Model.saveExport(data)
 }
 /**
@@ -32,6 +33,7 @@ function loadData(infoGroup) {
   console.log(`loadData(${infoGroup}): dispatch.js`)
   const folder = INFOGROUPS[infoGroup].folder;
   const keys = INFOGROUPS[infoGroup].keys;
+
   return Model.load(folder)
     .then(result =>
       keys.reduce((acc, key) => ({ ...acc, [key]: result[key] }), {})

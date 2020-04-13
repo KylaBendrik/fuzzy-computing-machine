@@ -10,8 +10,8 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    width: 1200,
+    height: 900,
     webPreferences: {
       contextIsolation: true,
       enableRemoteModule: false,
@@ -56,7 +56,7 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 
-const namespaces = ['contactInfo', 'financialInfo', 'personalInfo', 'orgInfo', 'employeesInfo', 'employees']
+const namespaces = ['contactInfo', 'financialInfo', 'personalInfo', 'orgInfo', 'employeesInfo', 'employees', 'packageInfo']
 
 for (const namespace of namespaces)  {
   ipcMain.on(`${namespace}_load`, (event, _data) => {
@@ -75,7 +75,7 @@ for (const namespace of namespaces)  {
 }
 ipcMain.on(`export`, (event, data) => {
   console.log(`export: main.js`)
-  console.log(data)
+  console.log(JSON.stringify(data))
   Dispatch
     .exportData(data)
     .then(() => event.reply(`export/response`));

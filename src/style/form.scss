@@ -17,16 +17,32 @@ label {
   font-size: 24px;
   padding-right: 6px;
 }
+select {
+  
+  border: none;
+  font-size: 20px;
+  
+  font-family: Candara, Verdana, sans-serif;
+  background: $text_input_color;
+  line-height: 30px;
+  padding: 4px;
+  width: 50vw;
+}
 input {
   font-size: 20px;
   border: none;
   transition-duration: 0.5s;
   font-family: Candara, Verdana, sans-serif;
 }
+input[type=date] {
+  background: $text_input_color;
+  line-height: 30px;
+  padding: 4px;
+  width: 50vw;
+}
 input[type=text] {
   background: $text_input_color;
   line-height: 30px;
-  width: 300px;
   padding: 4px;
   width: 50vw;
 }
@@ -51,4 +67,25 @@ button:hover {
   background: $field_color;
   text-align: right;
   width: 75vw;
+}
+.tooltip {
+  position: relative;
+}
+.tooltiptext {
+  font-size: 14px;
+  visibility: hidden;
+  width: 300px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  margin: 0 100px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }

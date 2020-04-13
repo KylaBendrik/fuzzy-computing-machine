@@ -1,3 +1,6 @@
+const packageData = require('./package.json')
+const webpack = require('webpack')
+
 
 module.exports = {
   /**
@@ -9,4 +12,10 @@ module.exports = {
   module: {
     rules: require('./webpack.rules'),
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      VERSION: JSON.stringify(packageData.version),
+      DESCRIPTION: JSON.stringify(packageData.description)
+    })
+  ]
 };

@@ -22,7 +22,7 @@ contextBridge.exposeInMainWorld('MainAPI', {
   },
   exportData(data) {
     console.log(`exportData(data): preload.js)`)
-    console.log(data)
+    console.log(JSON.stringify(data))
     return new Promise((resolve, _reject) => {
       ipcRenderer.once(`export/response`,
       (event) => resolve(event));

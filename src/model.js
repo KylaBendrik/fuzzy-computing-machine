@@ -5,25 +5,25 @@ const { dialog } = require('electron');
  * @since 0.2.1
  * @module Model
  */
-function saveExport(data){
-  let d = new Date();
-  let n = d.getTime(); 
+function saveExport(all_data){
+  console.log(JSON.stringify(all_data))
+  let [file_name, data] = all_data
 
   var options = {
     title: "Export File",
-    defaultPath: `Export_${n}`,
+    defaultPath: `${file_name}`,
     buttonLabel: "Export",
 
     filters:[
-      {name: 'txt', extensions: ['txt']},
       {name: 'All Files', extensions: ['*']}
     ]
   }
 
   return dialog
     .showSaveDialog( options)
-    .then(({ filePath }) => fs.writeFile(filePath, data, 'utf-8'))
+    .then(({ filePath }) => fs.writeFile(filePath, `${data}`, 'utf-8'))
 }
+
 /**
    * Take object (hash), turn into JSON, save to new file using an 
    * @param {object} data
@@ -44,10 +44,24 @@ function save(data, filename, folder) {
  * load('test');
  */
 function load(folder) {
-  console.log(`load(${folder}) - model.js`)
-  return findMostRecentFile(folder)
-    .then(fs.readFile)
-    .then(JSON.parse);
+  console.log(`load(${folder}): model.js`)
+  if (folder == "packageInfo" || folder == "package_info") {
+    console.log('loading package!')
+
+    
+    const package_data = {
+      version: VERSION,
+      description: DESCRIPTION
+    }
+
+    console.log(JSON.stringify(package_data))
+
+    return Promise.resolve(package_data)
+  } else {
+    return findMostRecentFile(folder)
+      .then(fs.readFile)
+      .then(JSON.parse);
+  }
 }
 /**
  * 
