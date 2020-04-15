@@ -394,7 +394,14 @@
     "size":1,
     "required":true,
     "options":[
-
+      {
+        "value":"M",
+        "label":"Male"
+      },
+      {
+        "value":"F",
+        "label":"Female"
+      }
     ],
     "form":"personal",
     "description":"",
