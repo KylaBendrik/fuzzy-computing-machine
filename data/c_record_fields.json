@@ -1,0 +1,732 @@
+[
+  {
+    "field_label":"Record Type",
+    "field_id":"record_type",
+    "start":1,
+    "size":1,
+    "required":true,
+    "options":[
+      {
+        "value":"C",
+        "label":"C"
+      }
+    ],
+    "form":"generated",
+    "description":"",
+    "input_type":"radio"
+  },
+  {
+    "field_label":"SSN",
+    "field_id":"ssn",
+    "start":2,
+    "size":9,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"US Social Security Number",
+    "input_type":"number"
+  },
+  {
+    "field_label":"First Name",
+    "field_id":"first_name",
+    "start":11,
+    "size":20,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"As on Social Security Card",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Middle Name",
+    "field_id":"middle_name",
+    "start":31,
+    "size":20,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"As on Social Security Card -- This is optional in the sense that some employees may do business as their middle name, in which case the first initial and middle name might appear in the preceding field. However, if you have a middle initial or middle name that is not part of the employee's common form of address, do not append that to the preceding field: put it in this field.",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Last Name",
+    "field_id":"last_name",
+    "start":51,
+    "size":35,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"As on Social Security Card",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Name Suffix",
+    "field_id":"name_suffix",
+    "start":86,
+    "size":5,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"'Jr.', 'Sr.', 'III', 'IV', etc.",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Address Line 1",
+    "field_id":"address_line_1",
+    "start":91,
+    "size":35,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"Employee's 1st street address line",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Address Line 2",
+    "field_id":"address_line_2",
+    "start":126,
+    "size":35,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"Employee's 2nd street address line",
+    "input_type":"text"
+  },
+  {
+    "field_label":"City",
+    "field_id":"city",
+    "start":161,
+    "size":20,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"City of Employee's address",
+    "input_type":"text"
+  },
+  {
+    "field_label":"State",
+    "field_id":"state",
+    "start":181,
+    "size":3,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"Two-letter USPS US State or Canadian Province code of employee's address, or other 2- or 3-character state abbreviation if the country of this address has state subdivisions.",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Zip/Postal Code",
+    "field_id":"zip/postal_code",
+    "start":184,
+    "size":10,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"US Zip or foreign Postal Code of employee's address. Provide Zip+4 (if known) with hyphen.",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Country",
+    "field_id":"country",
+    "start":194,
+    "size":2,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"Country of employee's address: two spaces for US addresses, or 2-character country code from ISO 3166-1 if not USA.",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Home Phone",
+    "field_id":"home_phone",
+    "start":196,
+    "size":10,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"Employee's home phone number",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Work Phone",
+    "field_id":"work_phone",
+    "start":206,
+    "size":10,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"employment",
+    "description":"Employee's work telephone number",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Work Phone Ext",
+    "field_id":"work_phone_ext",
+    "start":216,
+    "size":5,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"employment",
+    "description":"Employee's work telephone number extension",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Fed Tax Exmpts",
+    "field_id":"fed_tax_exmpts",
+    "start":221,
+    "size":2,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"employment",
+    "description":"Number of Tax Exemptions Claimed on W-4 Form",
+    "input_type":"number"
+  },
+  {
+    "field_label":"PA Exclusion Amt",
+    "field_id":"pa_exclusion_amt",
+    "start":223,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Annual amount the employee intends to exclude as Parsonage Allowance",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Email Address",
+    "field_id":"email_address",
+    "start":236,
+    "size":40,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"employment",
+    "description":"Employee's personal or work-provided email address",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Hire Date",
+    "field_id":"hire_date",
+    "start":276,
+    "size":8,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"employment",
+    "description":"Date hired by current employer",
+    "input_type":"date"
+  },
+  {
+    "field_label":"Birth Date",
+    "field_id":"birth_date",
+    "start":284,
+    "size":8,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"Employee's birth date",
+    "input_type":"date"
+  },
+  {
+    "field_label":"Status Date",
+    "field_id":"status_date",
+    "start":292,
+    "size":8,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"employment",
+    "description":"Effective date of current status.  This date should change whenever the employee's status changes and ONLY when it changes.",
+    "input_type":"date"
+  },
+  {
+    "field_label":"Status Code",
+    "field_id":"status_code",
+    "start":300,
+    "size":1,
+    "required":true,
+    "options":[
+      {
+        "value":"A",
+        "label":"Active"
+      },
+      {
+        "value":"N",
+        "label":"Not eligible"
+      },
+      {
+        "value":"B",
+        "label":"Blocked"
+      },
+      {
+        "value":"U",
+        "label":"Student"
+      },
+      {
+        "value":"S",
+        "label":"Suspended"
+      },
+      {
+        "value":"P",
+        "label":"Disability (Elimination Period - First 3 months)"
+      },
+      {
+        "value":"F",
+        "label":"Disability (Next Period - 18 months)"
+      },
+      {
+        "value":"D",
+        "label":"Disabled (Final Disability begins after 18 month \"F\" period)"
+      },
+      {
+        "value":"I",
+        "label":"Inactive"
+      },
+      {
+        "value":"R",
+        "label":"Retired"
+      },
+      {
+        "value":"T",
+        "label":"Terminated"
+      },
+      {
+        "value":"X",
+        "label":"Deceased"
+      }
+    ],
+    "form":"employment",
+    "description":"Employee's status of eligibility for ARP participation",
+    "input_type":"radio"
+  },
+  {
+    "field_label":"QNEC",
+    "field_id":"qnec",
+    "start":301,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Qualified Non-eligible Contribution (missed opportunity) - The required make-up payment of 50 percent of the elective contribution (pre-tax deferral or Roth) or 40 percent of the elective contribution (after-tax), that the employee would have made had the employee's election been properly implemented.",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Cost Center Code",
+    "field_id":"cost_center_code",
+    "start":314,
+    "size":10,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"employment",
+    "description":"Cost Center in which employee is working. Required if your payroll system utilizes cost center ID codes.",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Enrollment ID",
+    "field_id":"enrollment_id",
+    "start":324,
+    "size":10,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"employment",
+    "description":"Required if any employee receives more than one paycheck from you. This ID code distinguishes one employee doing one job from the same employee doing a different job.",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Employer Org ID",
+    "field_id":"employer_org_id",
+    "start":334,
+    "size":6,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"employment",
+    "description":"NAD-assigned OrgId of employer where employee actually performed his/her work",
+    "input_type":"text"
+  },
+  {
+    "field_label":"Gender",
+    "field_id":"gender",
+    "start":340,
+    "size":1,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"",
+    "input_type":"radio"
+  },
+  {
+    "field_label":"Marital Status",
+    "field_id":"marital_status",
+    "start":341,
+    "size":1,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"personal",
+    "description":"This is demographic status, not the value that might be entered on a W-4 form. Neded so that the retirement plan vendor can handle joint ownership, loans, rights of survivorship, and so forth.",
+    "input_type":"radio"
+  },
+  {
+    "field_label":"EE Guide",
+    "field_id":"ee_guide",
+    "start":342,
+    "size":1,
+    "required":true,
+    "options":[
+      {
+        "value":"1",
+        "label":"Employee is under Option 1/50% Threshold/non-ECEC"
+      },
+      {
+        "value":"2",
+        "label":"Employee is under Option 2/100% Threshold/non-ECEC"
+      },
+      {
+        "value":"E",
+        "label":"Employee is ECEC with NO benefits"
+      }
+    ],
+    "form":"payroll",
+    "description":"",
+    "input_type":"radio"
+  },
+  {
+    "field_label":"Fed Wages YTD",
+    "field_id":"fed_wages_ytd",
+    "start":343,
+    "size":13,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Dollar amount of YEAR-TO-DATE federal taxable earnings as reported on W-2 Form. This field is NET of the amount being claimed as parsonage allowance, the amount deferred to the ARP, or the amount deferred to another tax sheltered annuity.  This field must be net of estimated parsonage on each file upload. This field does include all taxable earnings, such as tuition assistance, taxable travel allowance, etc.  In most cases this field will reflect what is included in a Form W-2 Box 1. This field should only be zero in the following cases:  1) all contributions are catch up for prior year, 2) employee has designated 100% compensation as parsonage allowance, or 3) employee is on long-term disability pay.",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Deferred to Other TSA",
+    "field_id":"deferred_to_other_tsa",
+    "start":356,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Pre-Tax amount employee is having deferred to an other-than-ARP TSA. Do not include pre-tax deductions for insurance premiums or flexible spending account (FSA) deductions. (Zero fill if none)  (sum if more than one)",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Pre-Tax ",
+    "field_id":"pre-tax_",
+    "start":369,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Pre-Tax amount employee is having deferred to NAD Retirement Plan (ARP) (This is the sum of Pre-Tax Fixed $ and the dollar amount calculated using the Pre-Tax percent of gross wages).",
+    "input_type":"number"
+  },
+  {
+    "field_label":"After-Tax",
+    "field_id":"after-tax",
+    "start":382,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"After-Tax employee contribution to ARP",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Basic",
+    "field_id":"basic",
+    "start":395,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Employer Basic Contribution",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Match",
+    "field_id":"match",
+    "start":408,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Employer Matching Contribution",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Missionary Indicator",
+    "field_id":"missionary_indicator",
+    "start":421,
+    "size":1,
+    "required":false,
+    "options":[
+      {
+        "value":"M",
+        "label":"Missionary Contribution?"
+      },
+      {
+        "value":"",
+        "label":"Leave blank as Default"
+      }
+    ],
+    "form":"payroll",
+    "description":"Leave blank for most employees, but 'M' if the next field contains Missionary contribution. Other values reserved for future use.",
+    "input_type":"radio"
+  },
+  {
+    "field_label":"Missionary Amt",
+    "field_id":"missionary_amt",
+    "start":422,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Employer Missionary Contribution or zeros",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Loan Payment",
+    "field_id":"loan_payment",
+    "start":435,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Payment on loan from retirement account",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Loan Number",
+    "field_id":"loan_number",
+    "start":448,
+    "size":5,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Loan ID Number (Zero-fill if unused). Required when Loan Payment > 0.00. If a Loan ID number is reported, ensure that filling zeros are placed to the LEFT of the Loan ID Number.  Fatal error if filling zeros are misplaced.   Fatal error if LOANID is incorrect and cannot be matched to the master loan record upon import.",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Pay Period Hours",
+    "field_id":"pay_period_hours",
+    "start":453,
+    "size":8,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Total hours for current pay period in current cost center of current employer",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Special Pay",
+    "field_id":"special_pay",
+    "start":461,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Employer-paid post-1999 Retirement Allowance",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Roth 403B",
+    "field_id":"roth_403b",
+    "start":474,
+    "size":13,
+    "required":false,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Employee Roth 403B Contribution",
+    "input_type":"number"
+  },
+  {
+    "field_label":"ARP Gross Wages",
+    "field_id":"arp_gross_wages",
+    "start":487,
+    "size":13,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Current Pay Period Amount on which Employer Basic is calculated",
+    "input_type":"number"
+  },
+  {
+    "field_label":"ER Guide Code",
+    "field_id":"er_guide_code",
+    "start":500,
+    "size":1,
+    "required":true,
+    "options":[
+      {
+        "value":"B",
+        "label":"Blue: Option 1 (50% Threshold) with ECEC benefits"
+      },
+      {
+        "value":"P",
+        "label":"Pink: Option 1 (50% Threshold) with NO ECEC benefits"
+      },
+      {
+        "value":"V",
+        "label":"Violet: Option 2 (100% Threshold) with ECEC benefits"
+      },
+      {
+        "value":"G",
+        "label":"Green: Option 2 (100% Threshold) with NO ECEC benefits"
+      }
+    ],
+    "form":"employment",
+    "description":"Locally Funded Policy (2011) plan chosen by the employer.",
+    "input_type":"radio"
+  },
+  {
+    "field_label":"Salary On Paper",
+    "field_id":"salary_on_paper",
+    "start":501,
+    "size":13,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"Employee's theoretical agreed-upon per-period wages or salary, for display in the vendor's retirement calculator. This is a theoretical number, and is not affected by actual unpaid leave, overtime or other factors.",
+    "input_type":"number"
+  },
+  {
+    "field_label":"Salary Period",
+    "field_id":"salary_period",
+    "start":514,
+    "size":1,
+    "required":true,
+    "options":[
+      {
+        "value":"A",
+        "label":"Annual"
+      },
+      {
+        "value":"M",
+        "label":"Monthly"
+      },
+      {
+        "value":"S",
+        "label":"Semi-Monthly"
+      },
+      {
+        "value":"B",
+        "label":"Bi-Weekly"
+      },
+      {
+        "value":"H",
+        "label":"Hourly"
+      },
+      {
+        "value":"W",
+        "label":"Weekly"
+      }
+    ],
+    "form":"payroll",
+    "description":"The period of the preceding field",
+    "input_type":"radio"
+  },
+  {
+    "field_label":"Salary Periods Expected",
+    "field_id":"salary_periods_expected",
+    "start":515,
+    "size":4,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"payroll",
+    "description":"The number of periods this employee is expected to work per year, annualized. ",
+    "input_type":"number"
+  },
+  {
+    "field_label":"CR/LF",
+    "field_id":"cr/lf",
+    "start":519,
+    "size":2,
+    "required":true,
+    "options":[
+
+    ],
+    "form":"generated",
+    "description":"",
+    "input_type":"text"
+  }
+]
