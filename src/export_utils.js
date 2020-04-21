@@ -1,4 +1,4 @@
-import { c_record_fields } from '../src/c_record_fields.js';
+import c_record_fields from '../data/c_record_fields.json'
 import { a_record_fields } from '../src/a_record_fields.js';
 //import { load } from '../src/model.js';
 
@@ -95,22 +95,27 @@ export function aRecordExport(contact_info, org_info, package_info, form_info){
 }
 
 export function cRecordExport(employee){
+  console.log("cRecordExport, export_utils.js")
+  console.log(JSON.stringify(employee))
   let arr = []
 	for (var i = 0; i < 520; i++){
 		arr.push(" ")
-	}
+  }
+  arr[0] = "C"
   for (var field of c_record_fields){
+    console.log("Do we know the field?")
+    console.log(JSON.stringify(field))
     let field_data_chars
-		if (employee[field.field_name] != undefined) {
-			field_data_chars = employee[field.field_name].split("")
+		if (employee[field.field_id] != undefined) {
+			field_data_chars = employee[field.field_id].split("")
     }
     else {
-      field_data_chars = field.default.split("")
+      field_data_chars = ""
     }
     let start = field.start
     	var i = 0
 			for (var char of field_data_chars){
-				arr[start + i] = char
+				arr[start + i - 1] = char
 				i = i + 1
 			}
 	}

@@ -1,7 +1,7 @@
 <script>
   import { page } from '../stores.js';
   import { get } from 'svelte/store';
-  import all_fields from './data/c_fields.json'
+  import all_fields from '../../data/c_record_fields.json'
   import Field from './field.svelte'
 
   // Generate forms
@@ -68,15 +68,15 @@
 	}
 </script>
 <style type="text/scss">
+  @import "src/style/submenu.scss";
   @import "src/style/form.scss";
 
-  .tabs button {
-		width: 150px;
-		border: none;
-		background: lightblue
-	}
+  .form_page {
+  }
 </style>
-<div class="tabs">
+<div class="submenu">
+<button on:click={save}>Save</button>
+<div class="tabs_container">
 	<button id="personal_button" on:click={pick_personal}>
 		Personal
 	</button>
@@ -87,6 +87,8 @@
 		Payroll
 	</button>
 </div>
+</div>
+
 
 <div class="form_container">
 	{#if pages_visible.personal}

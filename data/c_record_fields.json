@@ -1,21 +1,5 @@
 [
   {
-    "field_label":"Record Type",
-    "field_id":"record_type",
-    "start":1,
-    "size":1,
-    "required":true,
-    "options":[
-      {
-        "value":"C",
-        "label":"C"
-      }
-    ],
-    "form":"generated",
-    "description":"",
-    "input_type":"radio"
-  },
-  {
     "field_label":"SSN",
     "field_id":"ssn",
     "start":2,
@@ -414,7 +398,22 @@
     "size":1,
     "required":true,
     "options":[
-
+      {
+        "value":"S",
+        "label":"Single"
+      },
+      {
+        "value":"M",
+        "label":"Married"
+      },
+      {
+        "value":"W",
+        "label":"Widowed"
+      },
+      {
+        "value":"D",
+        "label":"Divorced"
+      }
     ],
     "form":"personal",
     "description":"This is demographic status, not the value that might be entered on a W-4 form. Neded so that the retirement plan vendor can handle joint ownership, loans, rights of survivorship, and so forth.",

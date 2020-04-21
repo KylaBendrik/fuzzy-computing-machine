@@ -1,0 +1,96 @@
+@import "src/style/colors.scss";
+.tabs button {
+  width: 150px;
+  border: none;
+  background: lightblue
+}
+
+ul, li {
+  list-style-type: none;
+  list-style-position: inside;
+  padding-left: 0px;
+  text-align: right;
+  background: $field_color;
+
+  input[type=text] {  
+  background: $field_color;
+  width: 60px;
+  }
+}
+label {
+  display: inline;
+  font-size: 24px;
+  padding-right: 6px;
+}
+select {
+  
+  border: none;
+  font-size: 20px;
+  
+  font-family: Candara, Verdana, sans-serif;
+  background: $text_input_color;
+  line-height: 30px;
+  padding: 4px;
+  width: 50vw;
+}
+input {
+  font-size: 20px;
+  border: none;
+  transition-duration: 0.5s;
+  font-family: Candara, Verdana, sans-serif;
+}
+input[type=date] {
+  background: $text_input_color;
+  line-height: 30px;
+  padding: 4px;
+  width: 50vw;
+}
+input[type=text] {
+  background: $text_input_color;
+  line-height: 30px;
+  padding: 4px;
+  width: 50vw;
+}
+input:hover {
+  background: $button_color;
+}
+button {
+  border: none;
+  background: $button_color;
+  width: 100px;
+  height: 38px;
+  transition-duration: 0.5s;
+  font-size: 14px;
+}
+button:hover {
+  display: inline-block;
+  background: $base_color;
+}
+.field {
+  width: 600px;
+  margin: 2px;
+  background: $field_color;
+  text-align: right;
+  width: 75vw;
+}
+.tooltip {
+  position: relative;
+}
+.tooltiptext {
+  font-size: 14px;
+  visibility: hidden;
+  width: 300px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  margin: 0 100px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

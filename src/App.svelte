@@ -29,6 +29,7 @@
 
 <style type="text/scss">
   @import "src/style/template.scss";
+  
 </style>
 
 <main>

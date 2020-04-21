@@ -28,7 +28,8 @@
   var orgInfo;
 
   const loadingEmployees = MainAPI.loadData("employeesInfo").then(
-    employeesInfo => (employeesData = employeesInfo["employees"])
+    employeesInfo => (employeesData = employeesInfo["employees"]),
+    console.log(JSON.stringify(employeesData))
   );
 
   const promises = Promise.all([
