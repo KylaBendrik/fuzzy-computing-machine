@@ -1,5 +1,4 @@
 import c_record_fields from '../data/c_record_fields.json'
-import { a_record_fields } from '../src/a_record_fields.js';
 //import { load } from '../src/model.js';
 
 function calculatePayRef(pr_ctr_id, pay_date, pay_period, payroll_run_ref){

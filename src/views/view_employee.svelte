@@ -70,9 +70,6 @@
 <style type="text/scss">
   @import "src/style/submenu.scss";
   @import "src/style/form.scss";
-
-  .form_page {
-  }
 </style>
 <div class="submenu">
 <button on:click={save}>Save</button>
