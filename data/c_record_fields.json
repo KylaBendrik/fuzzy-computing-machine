@@ -10,7 +10,7 @@
     ],
     "form":"personal",
     "description":"US Social Security Number",
-    "input_type":"number"
+    "input_type":"text"
   },
   {
     "field_label":"First Name",
@@ -192,7 +192,7 @@
     ],
     "form":"employment",
     "description":"Number of Tax Exemptions Claimed on W-4 Form",
-    "input_type":"number"
+    "input_type":"text"
   },
   {
     "field_label":"PA Exclusion Amt",
@@ -470,8 +470,8 @@
     "input_type":"number"
   },
   {
-    "field_label":"Pre-Tax ",
-    "field_id":"pre-tax_",
+    "field_label":"Pre-Tax",
+    "field_id":"pre-tax",
     "start":369,
     "size":13,
     "required":false,
@@ -578,7 +578,7 @@
     ],
     "form":"payroll",
     "description":"Loan ID Number (Zero-fill if unused). Required when Loan Payment > 0.00. If a Loan ID number is reported, ensure that filling zeros are placed to the LEFT of the Loan ID Number.  Fatal error if filling zeros are misplaced.   Fatal error if LOANID is incorrect and cannot be matched to the master loan record upon import.",
-    "input_type":"number"
+    "input_type":"text"
   },
   {
     "field_label":"Pay Period Hours",
@@ -720,7 +720,7 @@
     ],
     "form":"payroll",
     "description":"The number of periods this employee is expected to work per year, annualized. ",
-    "input_type":"number"
+    "input_type":"text"
   },
   {
     "field_label":"CR/LF",

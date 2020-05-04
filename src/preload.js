@@ -30,4 +30,5 @@ contextBridge.exposeInMainWorld('MainAPI', {
       ipcRenderer.send(`export`, data)
     })
   }
+  
 })

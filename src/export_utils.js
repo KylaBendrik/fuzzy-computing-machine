@@ -1,4 +1,5 @@
 import c_record_fields from '../data/c_record_fields.json'
+import z_record_fields from '../data/z_record_fields.json'
 //import { load } from '../src/model.js';
 
 function calculatePayRef(pr_ctr_id, pay_date, pay_period, payroll_run_ref){
@@ -86,7 +87,7 @@ export function aRecordExport(contact_info, org_info, package_info, form_info){
     let start = field.start
     var i = 0
     for (var char of field_data_chars){
-      arr[start + i] = char
+      arr[start + i - 1] = char
       i = i + 1
     }
   }
@@ -102,29 +103,119 @@ export function cRecordExport(employee){
   }
   arr[0] = "C"
   for (var field of c_record_fields){
-    console.log("Do we know the field?")
-    console.log(JSON.stringify(field))
-    let field_data_chars
-		if (employee[field.field_id] != undefined) {
-			field_data_chars = employee[field.field_id].split("")
-    }
-    else {
-      field_data_chars = ""
+    let field_data_chars;
+    //create default
+    if( field.input_type === "number"){
+      field_data_chars = justifyNumbers(field, employee[field.field_id])
+    } else {
+      if (employee[field.field_id] != undefined) {
+        field_data_chars = employee[field.field_id].split("")
+      }
+      else {
+        field_data_chars = [""]
+      }
     }
     let start = field.start
-    	var i = 0
-			for (var char of field_data_chars){
-				arr[start + i - 1] = char
-				i = i + 1
-			}
+    var i = 0
+    for (var char of field_data_chars){
+      arr[start + i - 1] = char
+      i = i + 1
+    }
 	}
-  return arr.join("")
+  return arr.join("");
+}
+
+function justifyNumbers(field, data){
+  let default_data_chars = []
+  for (var i = 0; i < field.size; i++){
+    default_data_chars.push("0")
+  }
+  default_data_chars[0] = "+"
+
+
+  if (data != undefined){
+    console.log("data: ")
+    console.log(data)
+    if(data < 0){
+      default_data_chars[0] = "-"
+    }
+    let no_dec_chars = 
+      (Math.abs(data * 100))
+      .toString()
+      .split("")
+
+    let length_diff = default_data_chars.length - no_dec_chars.length
+
+    console.log(length_diff)
+
+    for (var i = 0; i < no_dec_chars.length; i++){
+      default_data_chars[length_diff + i] = no_dec_chars[i]
+    }
+
+    console.log(no_dec_chars)
+  }
+  return default_data_chars
+}
+
+function updateZRecord(line, zRecord){
+  z_record_fields.forEach(function(field){
+    if(field.c_record_total === "none" && zRecord[field.field_id] != "Z"){
+      zRecord[field.field_id] = "Z"
+    } else if(field.c_record_total === "count") {
+      if (zRecord[field.field_id] > 0){
+        zRecord[field.field_id] += 1;
+      } else {
+        zRecord[field.field_id] = 1;
+      }
+    } else {
+      console.log("-----------")
+      console.log(`field.c_record_total: ${field.c_record_total}`)
+      console.log(`line[field.c_record_total]: ${line[field.c_record_total]}`)
+      let value = 0
+      if(isNaN(line[field.c_record_total]) || line[field.c_record_total] === ""){
+        console.log("is NaN")
+      } else {
+        value = parseFloat(line[field.c_record_total])
+      }
+      console.log(`value: ${value}`)
+      if (zRecord[field.field_id] > 0){
+        zRecord[field.field_id] += value
+      } else {
+        zRecord[field.field_id] = value
+      }
+      console.log(`Z-Record field ${field.field_id} set to ${value}`)
+    }
+    
+  })
+  console.log("current Z-Record:")
+  console.log(JSON.stringify(zRecord))
+  return zRecord
 }
 
 export function readyAllExports(cArray, [file_name, aRecord]){
   let result = [aRecord]
+  let zRecord = {}
+
   for (var line of cArray){
     result.push(cRecordExport(line))
+    zRecord = updateZRecord(line, zRecord)
   }
+
+  let justifiedZ = []
+
+  // justify numbers of Z-Record
+  for (var field of z_record_fields){
+    justifiedZ.push(justifyNumbers(field, zRecord[field.field_id]).join(""))
+  }
+
+  justifiedZ[0] = "Z"
+  console.log(JSON.stringify(justifiedZ))
+
+  result.push(justifiedZ.join(""))
+
+  console.log("finished result: ")
+  console.log(result.join("\n"))
+
+  // Add Z-Record to end of result
   return [file_name, result.join("\n")]
 }

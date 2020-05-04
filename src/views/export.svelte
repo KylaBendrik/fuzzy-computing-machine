@@ -46,7 +46,7 @@
         employeesData,
         aRecordExport(contactInfo, orgInfo, packageInfo, formInfo)
       );
-      MainAPI.exportData([file_name, data_string]).then(alert("Saved export!"));
+      MainAPI.exportData([file_name, data_string]);
     });
   }
 </script>

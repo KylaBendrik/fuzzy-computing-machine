@@ -41,6 +41,16 @@
     .then(updatePageNum('3', {}))
   } 
 
+  function deleteEmployee() {
+    console.log("deleteEmployee()")
+    if (confirm("Are you sure you want to delete this record?")) {
+      MainAPI
+      .saveData('delete_employee', employee)
+      .then(updatePageNum)
+    }
+    
+  } 
+
   function updatePageNum(new_id, params){
     page.set({id: new_id, params: params})
   }
@@ -73,6 +83,7 @@
 </style>
 <div class="submenu">
 <button on:click={save}>Save</button>
+<button class="danger" on:click={deleteEmployee}>Delete</button>
 <div class="tabs_container">
 	<button id="personal_button" on:click={pick_personal}>
 		Personal

@@ -56,7 +56,7 @@ app.on('activate', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
 
-const namespaces = ['contactInfo', 'financialInfo', 'personalInfo', 'orgInfo', 'employeesInfo', 'employees', 'packageInfo']
+const namespaces = ['contactInfo', 'financialInfo', 'personalInfo', 'orgInfo', 'employeesInfo', 'employees', 'packageInfo', 'delete_employee']
 
 for (const namespace of namespaces)  {
   ipcMain.on(`${namespace}_load`, (event, _data) => {

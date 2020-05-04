@@ -13,6 +13,11 @@ button {
   font-family: Candara, Verdana, sans-serif; 
 }
 
+.danger {
+  background: darkred;
+  color: white;
+}
+
 .field {
   display: grid;
   grid-template-columns: repeat(4, 25vmin);

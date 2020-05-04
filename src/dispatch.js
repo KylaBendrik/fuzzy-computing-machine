@@ -16,7 +16,8 @@ const INFOGROUPS = {
     'orgInfo': {folder: 'org_info', keys: ['pr_ctr_name', 'pr_ctr_id', 'pr_refs']},
     'employeesInfo': {folder: 'employees', keys:['employees']},
     'employees': {folder: 'employees', keys:['employees']},
-    'packageInfo': {folder: 'package_info', keys:['version', 'description']}
+    'packageInfo': {folder: 'package_info', keys:['version', 'description']},
+    'delete_employee': {folder: 'employees', keys:['employees']},
     }
 
 function exportData(data) {
@@ -70,6 +71,15 @@ function saveData(infoGroup, data) {
       console.log(`pushed: ${JSON.stringify(employees_list)}`)
       return Model.save({employees: employees_list}, folder, folder)});
 
+  } else if(infoGroup === "remove_employee"){
+    return Model
+      .load(folder)
+      .then(oldData => {
+        let employees_list = oldData["employees"]
+
+        let filtered_list = employees_list.filter(item => item.id !== data.id)
+
+        return Model.save({employees: filtered_list}, folder, folder)});
   } else {
     // const keys = INFOGROUPS[infoGroup].keys;
     //we need to read the data, add in our bits, and then save everything
