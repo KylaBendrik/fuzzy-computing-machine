@@ -12,7 +12,7 @@
   ]
 
   const unsubscribe = page.subscribe(value => {
-    console.log(`id: ${value.id}, params: ${JSON.stringify(value.params)}`)
+    //console.log(`id: ${value.id}, params: ${JSON.stringify(value.params)}`)
     if (value.id == '0'){
     pickExport();
   } else if (value.id == '1') {
