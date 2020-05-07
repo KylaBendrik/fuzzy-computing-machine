@@ -21,7 +21,8 @@ const createWindow = () => {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
 
       preload: path.join(app.getAppPath(), 'src/preload.js')
-    }
+    },
+    icon: path.join(app.getAppPath(), 'buildResources/icon.png')
   });
 
   // and load the index.html of the app.
