@@ -20,7 +20,7 @@
   "license": "MIT",
   "config": {
     "forge": {
-      "electronPackagerConfig": {
+      "packagerConfig": {
         "icon": "./buildResources/icon.png"
       },
       "makers": [
