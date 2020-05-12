@@ -29,6 +29,11 @@ contextBridge.exposeInMainWorld('MainAPI', {
 
       ipcRenderer.send(`export`, data)
     })
+  },
+  closeWindow(){
+    ipcRenderer.send('closeWindow')
+  },
+  minimizeWindow(){
+    ipcRenderer.send('minWindow')
   }
-  
 })

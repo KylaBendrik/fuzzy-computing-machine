@@ -32,6 +32,14 @@
     selected.title = event.detail.title;
     selected.params = event.detail.params;
   }
+
+    function pushCloseWindow() {
+    MainAPI.closeWindow()
+  }
+
+  function pushMinimizeWindow() {
+    MainAPI.minimizeWindow()
+  }
 </script>
 
 <style type="text/scss">

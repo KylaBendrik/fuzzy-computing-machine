@@ -82,3 +82,14 @@ ipcMain.on(`export`, (event, data) => {
     .exportData(data)
     .then(() => event.reply(`export/response`));
 });
+ipcMain.on('closeWindow', (event, data) => {
+  const win = BrowserWindow.getFocusedWindow() /* Note this is different to the
+html global `window` variable */
+  win.close();
+})
+
+ipcMain.on('minWindow', (event, data) => {
+  const win = BrowserWindow.getFocusedWindow() /* Note this is different to the
+html global `window` variable */
+  win.minimize();
+})
