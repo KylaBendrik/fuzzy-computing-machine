@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 160px, 50px, auto;
 }
-button {
+.tab {
   max-width: 160px;
   border: none;
   background: $button_color;
@@ -14,6 +14,7 @@ button {
   border-radius: 20px 20px 0px 0px;
   box-shadow: 2px -2px 5px 0 rgba(0,0,0,0.2), 4px -4px 8px 0 rgba(0,0,0,0.19);
   flex-grow: 1;
+  margin: 0;
 }
 #save {
   border-radius: 0px 0px 0px 0px;	
@@ -25,4 +26,8 @@ button {
   display: inline-flex;
   grid-column-start: 3;
   grid-column-end: 3;
+}
+.form_container {
+  background-color: mix(white, $base_color, 60%);
+  min-height: 80%;
 }

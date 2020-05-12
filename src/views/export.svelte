@@ -7,22 +7,41 @@
 
   let displays = {
     form: true,
-    form_button: true,
     employees: false,
     preview: false
   };
 
-  function submitForm(submission) {
+  function pickForm(submission) {
     submission.preventDefault();
-    displays.form_button = false;
-    displays.employees = true;
+    
+    displays.form       = true;
+    displays.employees  = false;
+    displays.preview    = false;
   }
 
-  function submitEmployees(submission) {
+  function pickEmployees(submission) {
     submission.preventDefault();
-    displays.form = false;
-    displays.employees = false;
-    displays.preview = true;
+
+    //enable preview button
+    const preview_button = document.getElementById('preview_tab')
+
+    if (preview_button.disabled == true){
+      console.log('preview is disabled!')
+      preview_button.disabled = false
+      console.log('preview is enabled!')
+    }
+
+    displays.form       = false;
+    displays.employees  = true;
+    displays.preview    = false;
+  }
+
+  function pickPreview(submission) {
+    submission.preventDefault();
+
+    displays.form       = false;
+    displays.employees  = false;
+    displays.preview    = true;
   }
 
   let today = new Date();
@@ -82,13 +101,20 @@
 <style type="text/scss">
   @import "src/style/form.scss";
   @import "src/style/table.scss";
+  @import "src/style/submenu.scss";
 </style>
+<div class="submenu">
+  <div class="tabs_container">
+    <button id="form_tab" on:click={pickForm} class="tab">Payroll</button>
+    <button id="employees_tab" class="tab"
+    type="submit" form="payroll_form">Employees</button>
+    <button id="preview_tab" class="tab"
+    type="submit" form="employees" disabled>Preview</button>
+  </div>
+</div>
 {#if displays.form}
-{#if displays.form_button}
-    <button type="submit" form="payroll_form" value="Next">Next</button>
-  {/if}
   <div class="form_container">
-    <form id="payroll_form" on:submit={submitForm}>
+    <form id="payroll_form" on:submit={pickEmployees}>
       <div class="field">
       <span class="tooltiptext">
             This is the check issue date printed on payroll checks. Submit a
@@ -172,10 +198,8 @@
   
 {/if}
 {#if displays.employees}
-  <div>
-  <button type="submit" form="employees" value="Next">Next</button>
-  
-  <form id="employees" on:submit={submitEmployees}>
+  <div class="form_container">
+  <form id="employees" on:submit={pickPreview}>
     {#await loadingEmployees}
       loading...
     {:then employeesData}
