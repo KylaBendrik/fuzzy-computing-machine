@@ -4,7 +4,7 @@ header, article {
   padding: 20px;
 }
   
-header {
+#mainheader {
   background-color: $base_color;
   background: linear-gradient(90deg, mix(white, $base_color, 50%), $base_color);
   color: white;

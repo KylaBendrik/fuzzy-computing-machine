@@ -1,5 +1,7 @@
 const rules = require('./webpack.rules');
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const assets = [ 'images' ]; // asset directories
 
 rules.push({
   test: /\.css$/,
@@ -21,6 +23,14 @@ module.exports = {
   module: {
     rules
   },
+  plugins: assets.map(asset => {
+    return new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, 'src', asset),
+        to: path.resolve(__dirname, '.webpack/renderer', asset)
+      }
+    ]);
+  }),
   resolve: {
     alias: {
       svelte: path.resolve('node_modules', 'svelte')

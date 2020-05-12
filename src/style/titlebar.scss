@@ -1,0 +1,69 @@
+@import "src/style/colors.scss";
+
+#titlebar {
+  display: block;
+  position: fixed;
+  height: 32px;
+  width: calc(100% - 2px);
+  padding: 4px;
+  color: white;
+}
+
+#titlebar #drag-region {
+  width: 100%;
+  height: 100%;
+  -webkit-app-region: drag;
+  display: grid;
+  grid-template-columns: auto 92px;
+}
+
+#window-title {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  overflow: hidden;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+#window-title span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+#window-controls {
+  display: grid;
+  grid-template-columns: repeat(2, 60px);
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  -webkit-app-region: no-drag;
+  text-align: center;
+  line-height: 40px;
+}
+#window-controls .button:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+#window-controls .button:active {
+  background: rgba(255,255,255,0.2);
+}
+#close-button:hover {
+  background: #E81123 !important;
+}
+#close-button:active {
+  background: #F1707A !important;
+}
+#close-button:active .icon {
+  filter: invert(1);
+}
+#min-button {
+  grid-column: 1;
+}
+#close-button {
+  grid-column: 2;
+}
