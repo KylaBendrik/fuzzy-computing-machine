@@ -225,6 +225,7 @@
   </div>
 {/if}
 {#if displays.preview}
+<div class="form_container">
   <div class="preview">
     <h1>Export</h1>
     <button on:click={saveExport}>Export</button>
@@ -240,5 +241,6 @@
     {#each selected_employees as employee}
       <pre>{cRecordExport(employee)}</pre>
     {/each}
+  </div>
   </div>
 {/if}
