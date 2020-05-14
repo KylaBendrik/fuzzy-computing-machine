@@ -76,6 +76,10 @@
 <style type="text/scss">
   @import "src/style/submenu.scss";
   @import "src/style/form.scss";
+
+  .form_page{
+    padding: 15px;
+  }
 </style>
 
 <div class="submenu">

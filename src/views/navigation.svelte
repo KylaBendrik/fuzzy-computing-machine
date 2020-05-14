@@ -8,7 +8,8 @@
     {id: '1', name: 'Dashboard', href:'/dashboard'},
     {id: '2', name: 'Organization', href:'/org_info'},
     {id: '3', name: 'Employees', href:'/employees'},
-    {id: '4', name: 'My Info', href:'/my_info'}
+    {id: '4', name: 'My Info', href:'/my_info'},
+    {id: '20', name: 'Help', href:'/help'}
   ]
 
   const unsubscribe = page.subscribe(value => {
@@ -27,6 +28,8 @@
     pickAddEmployee();
   } else if (value.id == '11') {
     pickViewEmployee();
+  } else if (value.id == '20') {
+    pickHelp();
   }
   })
 
@@ -76,6 +79,13 @@
     dispatch('navmessage', {
       destination: "ViewEmployee",
       title: "View Employee"
+    })
+  }
+  function pickHelp(){
+    console.log("navigate to help page")
+    dispatch('navmessage', {
+      destination: "Help",
+      title: "Help"
     })
   }
 </script>

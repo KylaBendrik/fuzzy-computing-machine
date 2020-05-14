@@ -6,6 +6,7 @@
   import Organization from "./views/org_info.svelte";
   import Employees from "./views/employees.svelte";
   import Export from "./views/export.svelte";
+  import Help from "./views/help.svelte";
 
   import AddEmployee from "./views/view_employee.svelte";
 
@@ -24,7 +25,8 @@
     Employees,
     AddEmployee,
     ViewEmployee,
-    Export
+    Export,
+    Help
   };
 
   function handleMessage(event) {

@@ -1,6 +1,9 @@
+<script>
+  
+</script>
 
 <style type="text/scss">
-  $base_color: #007681;
+  @import "src/style/colors.scss";
   .container {
     display: grid;
     grid-template-areas: "option1 option2"
@@ -12,6 +15,8 @@
 
     width: 100%;
     height: 100%;
+
+    color: white;
   }
   .option1 {
     grid-area: option1;
@@ -32,7 +37,8 @@
 </style>
 
 <div class="container">
-  <div class="option1"></div>
+  <div class="option1">
+  </div>
   <div class="option2"></div>
   <div class="option3"></div>
   <div class="option4"></div>

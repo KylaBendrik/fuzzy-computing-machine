@@ -1,0 +1,30 @@
+@import "src/style/colors.scss";
+
+h1 {
+  display: block;
+
+  font-size: 32px;
+  font-weight: bold;
+  color: $base_color;
+  text-transform: uppercase;
+  margin: 0px;
+} 
+
+h2{
+  margin: 0px;
+
+  font-size: 16px;
+  font-style: italic;
+
+}
+
+h3 {
+  margin: 0px;
+  
+  font-size: 24px;
+  color: $base_color;
+}
+
+.help_page{
+  padding: 15px;
+}
