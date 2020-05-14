@@ -26,12 +26,6 @@
     //enable preview button
     const preview_button = document.getElementById('preview_tab')
 
-    if (preview_button.disabled == true){
-      console.log('preview is disabled!')
-      preview_button.disabled = false
-      console.log('preview is enabled!')
-    }
-
     displays.form       = false;
     displays.employees  = true;
     displays.preview    = false;
@@ -103,16 +97,20 @@
   @import "src/style/form.scss";
   @import "src/style/table.scss";
   @import "src/style/submenu.scss";
+
+  .submit_div {
+    display: grid;
+    grid-template-columns: repeat(4, 25vmin);
+    padding: 5px;
+    position:relative;
+
+    font-size: 20px;
+  }
+  .submit_button {
+    grid-column-start: 4;
+    grid-column-end: -1;
+  }
 </style>
-<div class="submenu">
-  <div class="tabs_container">
-    <button id="form_tab" on:click={pickForm} class="tab">Payroll</button>
-    <button id="employees_tab" class="tab"
-    type="submit" form="payroll_form">Employees</button>
-    <button id="preview_tab" class="tab"
-    type="submit" form="employees" disabled>Preview</button>
-  </div>
-</div>
 {#if displays.form}
   <div class="form_container">
     <form id="payroll_form" on:submit={pickEmployees}>
@@ -195,11 +193,17 @@
            class="maininput"/>
       </div>
     </form>
+    <div class="submit_div">
+      <button class="submit_button" type="submit" form="payroll_form">Submit</button>
+    </div>
   </div>
   
 {/if}
 {#if displays.employees}
   <div class="form_container">
+  <div class="submit_div">
+    <button class="submit_button" type="submit" form="employees">Submit</button>
+  </div>
   <form id="employees" on:submit={pickPreview}>
     {#await loadingEmployees}
       loading...
@@ -226,8 +230,8 @@
   </div>
 {/if}
 {#if displays.preview}
-<div class="form_container">
-  <div class="preview">
+<div class="form_container" style="overflow: scroll">
+  <div class="preview" >
     <h1>Export</h1>
     <button on:click={saveExport}>Export</button>
     <p>

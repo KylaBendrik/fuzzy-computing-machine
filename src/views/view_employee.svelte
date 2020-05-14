@@ -80,6 +80,9 @@
   .form_page{
     padding: 15px;
   }
+  h2 {
+    margin: 0;
+  }
 </style>
 
 <div class="submenu">
