@@ -35,5 +35,9 @@ contextBridge.exposeInMainWorld('MainAPI', {
   },
   minimizeWindow(){
     ipcRenderer.send('minWindow')
+  },
+  openLink(link){
+    console.log(`preload openLink: ${link}`)
+    ipcRenderer.send('openLink', link)
   }
 })

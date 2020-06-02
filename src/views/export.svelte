@@ -107,8 +107,8 @@
     font-size: 20px;
   }
   .submit_button {
-    grid-column-start: 4;
-    grid-column-end: -1;
+    grid-column-start: 1;
+    grid-column-end: 1;
   }
 </style>
 {#if displays.form}

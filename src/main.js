@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const path = require('path');
 const Dispatch = require('./dispatch')
 
@@ -92,4 +92,14 @@ ipcMain.on('minWindow', (event, data) => {
   const win = BrowserWindow.getFocusedWindow() /* Note this is different to the
 html global `window` variable */
   win.minimize();
+})
+
+ipcMain.on('openLink', (event, data) => {
+  
+  console.log(`main openLink: ${data}`)
+  if(data === "releases"){
+    shell.openExternal('https://github.com/KylaBendrik/fuzzy-computing-machine/releases')
+  } else if(data === "issues"){
+    shell.openExternal('https://github.com/KylaBendrik/fuzzy-computing-machine/issues')
+  }
 })

@@ -25,6 +25,19 @@
 </script>
 <style type="text/scss">
   @import "src/style/table.scss";
+  button {
+  width: 200px;
+  height: 30px;
+  border: none;
+  background: $button_color;
+  font-size: 20px;
+  color: black;
+  margin: 5px;
+  
+  box-shadow: 2px -2px 5px 0 rgba(0,0,0,0.2), 4px -4px 8px 0 rgba(0,0,0,0.19);
+  
+  font-family: Candara, Verdana, sans-serif; 
+}
 </style>
 <button on:click={() => updatePageNum('10', {})}>Add Employee</button>
 {#await loadingEmployees}

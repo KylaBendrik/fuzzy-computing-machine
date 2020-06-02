@@ -32,8 +32,8 @@ button {
 }
 
 .tooltiptext {
-  grid-column-start: 1;
-  grid-column-end: 1;
+  grid-column-start: 4;
+  grid-column-end: 4;
   position: absolute;
   width: 180px;
   padding: 5px 0;
@@ -51,13 +51,13 @@ button {
 }
 
 .fieldlabel {
-  grid-column-start: 2;
-  grid-column-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 1;
 }
 
 .radiooptions {
-  grid-column-start: 3;
-  grid-column-end: -1;
+  grid-column-start: 2;
+  grid-column-end: 4;
   
 }
 ul {
@@ -69,8 +69,8 @@ ul {
   }
 }
 .maininput {
-  grid-column-start: 3;
-  grid-column-end: -1;
+  grid-column-start: 2;
+  grid-column-end: 4;
 
   font-size: 20px;
   font-family: Candara, Verdana, sans-serif;
