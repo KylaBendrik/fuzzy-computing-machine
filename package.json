@@ -1,7 +1,7 @@
 {
   "name": "caz-payroll-converter",
   "productName": "CAZ",
-  "version": "0.6.7",
+  "version": "0.7.0",
   "description": "CAZ Payroll Converter",
   "main": ".webpack/main",
   "scripts": {
