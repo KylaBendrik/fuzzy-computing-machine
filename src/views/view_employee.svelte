@@ -86,14 +86,26 @@
 </style>
 
 <div class="submenu">
-  <button on:click={save} class="tab">Save</button>
-  <button class="tab" on:click={deleteEmployee}>Delete</button>
+  <button on:click={save} class="submenu_button">Save</button>
+  <button on:click={deleteEmployee} class="submenu_button">Delete</button>
   <div class="tabs_container">
-    <button id="personal_button" on:click={pick_personal} class="tab">Personal</button>
-    <button id="employment_button" on:click={pick_employment} class="tab">
-      Employment
-    </button>
-    <button id="payroll_button" on:click={pick_payroll} class="tab">Payroll</button>
+    {#if pages_visible.personal}
+      <button id="personal_button" class="submenu_tab_current">Personal</button>
+    {:else}
+      <button id="personal_button" on:click={pick_personal} class="submenu_tab">Personal</button>
+    {/if}
+    {#if pages_visible.employment}
+      <button id="employment_button" class="submenu_tab_current">Employment</button>
+    {:else}
+      <button id="employment_button" on:click={pick_employment} class="submenu_tab">Employment</button>
+    {/if}
+    {#if pages_visible.payroll}
+      <button id="payroll_button" class="submenu_tab_current">Payroll</button>
+    {:else}
+      <button id="payroll_button" on:click={pick_payroll} class="submenu_tab">Payroll</button>
+    {/if}
+    
+
   </div>
 </div>
 
