@@ -81,6 +81,15 @@ function newFileName(filename, folder){
   console.log(`new file name: ${folder}/${filename}${n}.json`)
   return `data/${folder}/${filename}${n}.json`
 }
+
+function handleReadFailure(reason) {
+  if (reason.code === 'ENOENT') {
+    return fs.mkdir(reason.path);
+  }
+
+  throw reason;
+}
+
 /**
  * Finds the most recent file of the specified type
  * @memberof module:Model~private_methods
@@ -89,6 +98,7 @@ function newFileName(filename, folder){
 function findMostRecentFile(folder){
   console.log(`findMostRecentFile(${folder}) - model.js`)
   return fs.readdir(`./data/${folder}`)
+    .catch(handleReadFailure)
     .then(result => cleanUpOldFiles(result, folder))
     .then(function(files) {
       files.sort().reverse();
