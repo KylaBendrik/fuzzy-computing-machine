@@ -1,13 +1,15 @@
-let fs = require('fs').promises
-const { dialog } = require('electron');
+/* global VERSION, DESCRIPTION */
+
+let fs = require("fs").promises;
+const { dialog } = require("electron");
 /**
  * @fileoverview Direct access to files (save, load, etc.) as well as housekeeping (cleaning up old files)
  * @since 0.2.1
  * @module Model
  */
 function saveExport(all_data){
-  console.log(JSON.stringify(all_data))
-  let [file_name, data] = all_data
+  console.log(JSON.stringify(all_data));
+  let [file_name, data] = all_data;
 
   var options = {
     title: "Export File",
@@ -15,13 +17,13 @@ function saveExport(all_data){
     buttonLabel: "Export",
 
     filters:[
-      {name: 'All Files', extensions: ['*']}
+      {name: "All Files", extensions: ["*"]}
     ]
-  }
+  };
 
   return dialog
     .showSaveDialog( options)
-    .then(({ filePath }) => fs.writeFile(filePath, `${data}`, 'utf-8'))
+    .then(({ filePath }) => fs.writeFile(filePath, `${data}`, "utf-8"));
 }
 
 /**
@@ -30,11 +32,17 @@ function saveExport(all_data){
    * @param {string} filename 
    */
 function save(data, filename, folder) {
-  console.log(`save(${data}, ${filename}, ${folder}) - model.js`)
-  const fileData = JSON.stringify(data)
-  const newFile = newFileName(filename, folder)
-  return fs.writeFile(newFile, fileData)
+  console.log(`save(${data}, ${filename}, ${folder}) - model.js`);
+  const fileData = JSON.stringify(data);
+  const newFile = newFileName(filename, folder);
+  return fs.writeFile(newFile, fileData);
 }
+
+const PACKAGE_DATA = {
+  version: VERSION,
+  description: DESCRIPTION
+};
+
 /**
  * Returns an object from the specified type of file
  * @param {string} folder (arecord, crecord, or test)
@@ -44,19 +52,10 @@ function save(data, filename, folder) {
  * load('test');
  */
 function load(folder) {
-  console.log(`load(${folder}): model.js`)
+  console.log(`load(${folder}): model.js`);
+
   if (folder == "packageInfo" || folder == "package_info") {
-    console.log('loading package!')
-
-    
-    const package_data = {
-      version: VERSION,
-      description: DESCRIPTION
-    }
-
-    console.log(JSON.stringify(package_data))
-
-    return Promise.resolve(package_data)
+    return Promise.resolve(PACKAGE_DATA);
   } else {
     return findMostRecentFile(folder)
       .then(fs.readFile)
@@ -74,16 +73,16 @@ function load(folder) {
  * @returns {string} 
  */
 function newFileName(filename, folder){
-  console.log(`newFileName(${filename}, ${folder}) - model.js`)
+  console.log(`newFileName(${filename}, ${folder}) - model.js`);
   let d = new Date();
   let n = d.getTime();
 
-  console.log(`new file name: ${folder}/${filename}${n}.json`)
-  return `data/${folder}/${filename}${n}.json`
+  console.log(`new file name: ${folder}/${filename}${n}.json`);
+  return `data/${folder}/${filename}${n}.json`;
 }
 
 function handleReadFailure(reason) {
-  if (reason.code === 'ENOENT') {
+  if (reason.code === "ENOENT") {
     return fs.mkdir(reason.path);
   }
 
@@ -95,30 +94,33 @@ function handleReadFailure(reason) {
  * @memberof module:Model~private_methods
  * @param {string} folder (arecord, crecord, or test)
  */
-function findMostRecentFile(folder){
-  console.log(`findMostRecentFile(${folder}) - model.js`)
+function findMostRecentFile(folder) {
+  console.log(`findMostRecentFile(${folder}) - model.js`);
+
   return fs.readdir(`./data/${folder}`)
     .catch(handleReadFailure)
     .then(result => cleanUpOldFiles(result, folder))
-    .then(function(files) {
+    .then(files => {
       files.sort().reverse();
-      return(`./data/${folder}/${files[0]}`)});
+
+      return `./data/${folder}/${files[0]}`;
+    });
 }
+
 /**
  * Removes old files.
  * @memberof module:Model~private_methods
  * @param {array} files 
  */
 function cleanUpOldFiles(files, folder) {
-  console.log(`cleanUpOldFiles(${files}) - model.js`)
-  return new Promise((resolve, _reject) => {
-    if (files.length > 3) {
-      fs.unlink(`data/${folder}/${files[1]}`, function (err) {
-        if (err) throw err;
-      })
-      
-    }
-    resolve(files)
-  })
+  console.log(`cleanUpOldFiles(${files}) - model.js`);
+
+  if (files.length > 3) {
+    // TODO: Why files[1]?
+    fs.unlink(`data/${folder}/${files[1]}`);
+  }
+
+  return files;
 }
-module.exports = { save, load, saveExport }
+
+module.exports = { save, load, saveExport };

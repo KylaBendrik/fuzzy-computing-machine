@@ -1,5 +1,7 @@
-import c_record_fields from '../data/c_record_fields.json'
-import z_record_fields from '../data/z_record_fields.json'
+/* sourceType: module */
+
+import c_record_fields from '../data/c_record_fields.json';
+import z_record_fields from '../data/z_record_fields.json';
 //import { load } from '../src/model.js';
 
 function calculatePayRef(pr_ctr_id, pay_date, pay_period, payroll_run_ref){
