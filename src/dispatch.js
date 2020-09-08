@@ -11,13 +11,13 @@ const Model = require("../src/model.js");
  */
  
 const INFOGROUPS = {
-  "test_onlyName": {folder: "test", keys: ["contact_name"]},
-  "contactInfo": {folder: "contact_info", keys: ["contact_email", "contact_phone", "contact_fax", "contact_name"]},
-  "orgInfo": {folder: "org_info", keys: ["pr_ctr_name", "pr_ctr_id", "pr_refs"]},
-  "employeesInfo": {folder: "employees", keys:["employees"]},
-  "employees": {folder: "employees", keys:["employees"]},
-  "packageInfo": {folder: "package_info", keys:["version", "description"]},
-  "delete_employee": {folder: "employees", keys:["employees"]},
+  "test_onlyName": {folder: "test", keys: ["contact_name"], defaults: {}},
+  "contactInfo": {folder: "contact_info", keys: ["contact_email", "contact_phone", "contact_fax", "contact_name"], defaults: {}},
+  "orgInfo": {folder: "org_info", keys: ["pr_ctr_name", "pr_ctr_id", "pr_refs"], defaults: { pr_refs: [] }},
+  "employeesInfo": {folder: "employees", keys:["employees"], defaults: {}},
+  "employees": {folder: "employees", keys:["employees"], defaults: {}},
+  "packageInfo": {folder: "package_info", keys:["version", "description"], defaults: {}},
+  "delete_employee": {folder: "employees", keys:["employees"], defaults: {}},
 };
 
 function exportData(data) {
@@ -32,13 +32,12 @@ function exportData(data) {
  */
 function loadData(infoGroup) {
   console.log(`loadData(${infoGroup}): dispatch.js`);
-  const folder = INFOGROUPS[infoGroup].folder;
-  const keys = INFOGROUPS[infoGroup].keys;
+  const { folder, keys, defaults } = INFOGROUPS[infoGroup];
 
   return Model.load(folder)
-    .then(result =>
-      keys.reduce((acc, key) => ({ ...acc, [key]: result[key] }), {})
-    );
+    .then(result => {
+      return keys.reduce((acc, key) => ({ ...acc, [key]: result[key] || defaults[key] }), {});
+    });
 }
 /**
  * Gently saves the data

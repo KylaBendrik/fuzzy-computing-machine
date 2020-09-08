@@ -7,7 +7,7 @@
   const org_fields = [
     {
       field_label: "Payroll Center Name",
-      field_id: "pr_name",
+      field_id: "pr_ctr_name",
       size: 45,
       description: "Payroll Center Organization Name",
       input_type: "text",
@@ -15,7 +15,7 @@
     },
     {
       field_label: "Payroll Center ID",
-      field_id: "pr_id",
+      field_id: "pr_ctr_id",
       size: 6,
       description: "Payroll Center Organization ID Code as assigned by NAD. This designates the entity preparing and submitting this file, and may be different from the employer with the relationship with the employee.",
       input_type: "text",
@@ -35,14 +35,19 @@
   }
 
   let orgFormData = {
-    pr_ctr_name: 'payroll center name',
-    pr_ctr_id: 'payroll center org ID',
+    pr_ctr_name: '',
+    pr_ctr_id: '',
     pr_refs: ['PYR']
+  }
+
+  function importData(data) {
+    console.log(data);
+    orgFormData = data;
   }
 
   MainAPI
     .loadData('orgInfo')
-    .then(orgInfo => orgFormData = orgInfo)
+    .then(importData)
 </script>
 
 <style type="text/scss">

@@ -1,7 +1,9 @@
 /* global VERSION, DESCRIPTION */
 
 let fs = require("fs").promises;
+const Path = require("path");
 const { dialog } = require("electron");
+
 /**
  * @fileoverview Direct access to files (save, load, etc.) as well as housekeeping (cleaning up old files)
  * @since 0.2.1
@@ -81,9 +83,15 @@ function newFileName(filename, folder){
   return `data/${folder}/${filename}${n}.json`;
 }
 
+function makeDefaultFile(path) {
+  return fs.writeFile(Path.join(path, "aaaa.json"), "{}");
+}
+
 function handleReadFailure(reason) {
   if (reason.code === "ENOENT") {
-    return fs.mkdir(reason.path);
+    return fs
+      .mkdir(reason.path)
+      .then(() => makeDefaultFile(reason.path));
   }
 
   throw reason;
