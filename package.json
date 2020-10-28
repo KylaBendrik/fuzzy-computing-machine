@@ -22,31 +22,32 @@
     "forge": "./forge.config.js"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.53",
-    "@electron-forge/maker-deb": "^6.0.0-beta.53",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.53",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.53",
-    "@electron-forge/maker-zip": "^6.0.0-beta.53",
-    "@electron-forge/plugin-webpack": "^6.0.0-beta.53",
-    "@electron-forge/publisher-github": "^6.0.0-beta.53",
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@electron-forge/plugin-webpack": "^6.0.0-beta.54",
+    "@electron-forge/publisher-github": "^6.0.0-beta.54",
     "@marshallofsound/webpack-asset-relocator-loader": "^0.5.0",
-    "ava": "^3.3.0",
-    "copy-webpack-plugin": "^6.1.0",
-    "css-loader": "^3.4.2",
+    "ava": "^3.13.0",
+    "copy-webpack-plugin": "^6.2.1",
+    "css-loader": "^3.6.0",
     "electron": "8.5.2",
-    "eslint": "^7.8.1",
+    "eslint": "^7.12.1",
     "file-loader": "^5.0.0",
-    "jsdoc": "^3.6.3",
+    "jsdoc": "^3.6.6",
     "node-loader": "^0.6.0",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.0",
     "style-loader": "^0.23.1",
     "svelte-loader": "^2.13.6",
-    "svelte-preprocess": "^3.4.0",
+    "svelte-preprocess": "^3.9.12",
     "svelte-preprocess-sass": "^0.2.0"
   },
   "dependencies": {
+    "electron-prebuilt-compile": "^8.2.0",
     "electron-squirrel-startup": "^1.0.0",
-    "svelte": "^3.18.2"
+    "svelte": "^3.29.4"
   }
 }
