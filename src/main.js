@@ -1,3 +1,5 @@
+/* global MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY, MAIN_WINDOW_WEBPACK_ENTRY */
+
 const { app, BrowserWindow, ipcMain, shell } = require("electron");
 const path = require("path");
 const Dispatch = require("./dispatch");
@@ -17,10 +19,7 @@ const createWindow = () => {
       enableRemoteModule: false,
       nodeIntegration: false,
       sandbox: true,
-
-      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
-
-      preload: path.join(app.getAppPath(), "src/preload.js")
+      preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY
     },
     icon: path.join(app.getAppPath(), "buildResources/icon.png"),
     frame: false

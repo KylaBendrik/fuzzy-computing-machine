@@ -12,17 +12,18 @@ module.exports = {
     {
       name: "@electron-forge/maker-zip",
       platforms: [
-        "darwin"
+        "darwin",
+        "linux"
       ]
-    },
-    {
-      name: "@electron-forge/maker-deb",
-      config: {}
-    },
-    {
-      name: "@electron-forge/maker-rpm",
-      config: {}
     }
+    // {
+    //   name: "@electron-forge/maker-deb",
+    //   config: {}
+    // },
+    // {
+    //   name: "@electron-forge/maker-rpm",
+    //   config: {}
+    // }
   ],
   plugins: [
     [
@@ -35,7 +36,10 @@ module.exports = {
             {
               html: "./src/views/index.html",
               js: "./src/renderer.js",
-              name: "main_window"
+              name: "main_window",
+              preload: {
+                js: "./src/preload.js"
+              }
             }
           ]
         }
@@ -44,14 +48,14 @@ module.exports = {
   ],
   publishers: [
     {
-      name: '@electron-forge/publisher-github',
+      name: "@electron-forge/publisher-github",
       config: {
         repository: {
-          owner: 'KylaBendrik',
-          name: 'fuzzy-computing-machine'
+          owner: "KylaBendrik",
+          name: "fuzzy-computing-machine"
         },
         prerelease: true
       }
     }
   ]
-}
+};
