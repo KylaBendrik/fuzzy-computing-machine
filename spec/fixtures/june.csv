@@ -1,0 +1,86 @@
+Starfleet WholeHealth Network,,,,,,,,,,,
+,,,,,,,,,,,
+Payroll Details,,,,,,,,,,,
+,,,,,,,,,,,
+"Jun 13, 2020",,,,,,,,,,,
+,,,,,,,,,,,
+ ,Pay,Hrs,Amt,Deductions,Amt,Employee-paid Taxes,Amt,Company Contributions,Amt,Company-paid Taxes,Amt
+"Picard, Jean-luc 
+ ��Net  $1,987.40 
+ ��01/24/2020 
+ ��12/17/19 -  ��01/16/20 
+ ",Regular,100.00,"$2,379.00",401(k) ,$166.53,FIT,$86.25,,,SS,$147.50
+,Reimbursement,0.00,$4.33, , ,SS,$147.50,,,Med,$34.50
+,Cell Phone Reim,0.00,$115.00, , ,Med,$34.50,,,KS SUI,$64.23
+, , , , , ,KS PIT,$76.15,,, ,
+"Riker, William 
+ ��Net  $4,959.18 
+ ��01/24/2020 
+ ��01/01/20 -  ��01/31/20 
+ ",Sal,173.33,"$4,866.75",LST,$4.33,FIT,$296.57,,,SS,$359.47
+,Cell Phone Reim,0.00,$115.00,401(k),$268.90,SS,$359.47,,,Med,$84.07
+,Mileage Reim,0.00,$316.68,Med125 (Pre-Tax),$200.00,Med,$84.07,,,PA SUI,$59.98
+,Toll Reimbursement,0.00,$13.60,Supp Life,$31.10,PA PIT,$178.00,,, ,
+,Cost of living,0.00,$511.17, , ,PA SUIEE,$3.60,,, ,
+,Area Travel,0.00,$420.00, , ,City,$28.99,,, ,
+,Gifts,0.00,$200.00, , ,Sch Dist,$28.99,,, ,
+"Troi, Deanna 
+ ��Net  $727.87 
+ ��01/24/2020 
+ ��12/17/19 -  ��01/16/20 
+ ",Regular,48.00,$879.84,LST,$4.33,FIT,$0.00,,,SS,$54.55
+, , , ,401(k),$43.99,SS,$54.55,,,Med,$12.76
+, , , , , ,Med,$12.76,,,PA SUI,$8.80
+, , , , , ,PA PIT,$27.01,,, ,
+, , , , , ,PA SUIEE,$0.53,,, ,
+, , , , , ,City,$4.40,,, ,
+, , , , , ,Sch Dist,$4.40,,, ,
+"LaForge, Geordi
+ ��Net  $3,734.38 
+ ��01/24/2020 
+ ��01/01/20 -  ��01/31/20 
+ ",Sal,173.33,"$3,986.10",LST,$4.33,FIT,$299.27,,,SS,$288.48
+,Cell Phone Reim,0.00,$115.00,401(k),$176.32,SS,$288.48,,,Med,$67.47
+,Cost of living,0.00,$421.81,Med125 (Pre-Tax),$175.00,Med,$67.47,,,PA SUI,$48.28
+,Area Travel,0.00,$420.00,Supplemental AD&D Employee,$2.70,PA PIT,$142.84,,, ,
+, , , ,Supplemental AD&D Spouse,$2.70,PA SUIEE,$2.90,,, ,
+, , , , , ,City,$23.26,,, ,
+, , , , , ,Sch Dist,$23.26,,, ,
+"O'Brian, Miles
+ ��Net  $3,969.00 
+ ��01/24/2020 
+ ��01/01/20 -  ��01/31/20 
+ ",Sal,173.33,"$4,403.25",LST,$4.33,FIT,$494.34,,,SS,$316.50
+,Cell Phone Reim,0.00,$115.00,401(k),$194.39,SS,$316.50,,,Med,$74.02
+,Mileage Reim,0.00,$43.68,Med125 (Pre-Tax),$175.00,Med,$74.02,,,PA SUI,$52.80
+,Cost of living,0.00,$456.58, , ,PA PIT,$156.72,,, ,
+,Area Travel,0.00,$420.00, , ,PA SUIEE,$3.17,,, ,
+, , , , , ,City,$25.52,,, ,
+, , , , , ,Sch Dist,$25.52,,, ,
+"Crusher, Beverly
+ ��Net  $2,168.72 
+ ��01/24/2020 
+ ��12/17/19 -  ��01/16/20 
+ ",Regular,105.00,"$2,415.00",LST,$4.33,FIT,$0.00,,,SS,$149.73
+,Cell Phone Reim,0.00,$115.00,401(k),$72.45,SS,$149.73,,,Med,$35.02
+, , , , , ,Med,$35.02,,,PA SUI,$24.15
+, , , , , ,PA PIT,$74.14,,, ,
+, , , , , ,PA SUIEE,$1.45,,, ,
+, , , , , ,City,$12.08,,, ,
+, , , , , ,Sch Dist,$12.08,,, ,
+Total,,,,,,,,,,,
+,,,,,,,,,,,
+"Net� $17,546.55 
+",Regular,253.00,"$5,673.84",LST,$21.65,FIT,"$1,176.43",,,SS,"$1,316.23"
+,Sal,519.99,"$13,256.10",401(k) ,$166.53,SS,"$1,316.23",,,Med,$307.84
+,Reimbursement,0.00,$4.33,401(k),$756.05,Med,$307.84,,,KS SUI,$64.23
+,Cell Phone Reim,0.00,$575.00,Med125 (Pre-Tax),$550.00,KS PIT,$76.15,,,PA SUI,$194.01
+,Mileage Reim,0.00,$360.36,Supp Life,$31.10,PA PIT,$578.71,,, ,
+,Toll Reimbursement,0.00,$13.60,Supplemental AD&D Employee,$2.70,PA SUIEE,$11.65,,, ,
+,Cost of living,0.00,"$1,389.56",Supplemental AD&D Spouse,$2.70,City,$94.25,,, ,
+,Area Travel,0.00,"$1,260.00", , ,Sch Dist,$94.25,,, ,
+,Gifts,0.00,$200.00, , , ,,,, ,
+Grand Total,,,,,,,,,,,
+,,,,,,,,,,,
+"Net� $17,546.55 
+",     ,772.99,"$22,732.79",     ,"$1,530.73",     ,"$3,655.51",     ,,     ,"$1,882.31"
