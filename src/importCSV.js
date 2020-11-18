@@ -17,22 +17,22 @@ function parseEmployee(employeeRows) {
 }
 
 function parseRows(employee, [row, ...rest]) {
-  if (row[0] !== " ") {
+  if (row[0] !== " " || row[0] !== "") {
     employee.name = parseColA(employee.name, row[0])
   } 
-  if (row[1] !== " ") {
+  if (row[1] !== " " || row[1] !== "") {
     employee.pay.push(parsePay(row[1], row[2], row[3]))
   }
-  if (row[4] !== " ") {
+  if (row[4] !== " " || row[4] !== "") {
     employee.deductions.push(parseOther(row[4], row[5]))
   }
-  if (row[6] !== " ") {
+  if (row[6] !== " " || row[6] !== "") {
     employee.employee_taxes.push(parseOther(row[6], row[7]))
   }
-  if (row[8] !== " ") {
+  if (row[8] !== " " || row[8] !== "") {
     employee.company_contributions.push(parseOther(row[8], row[9]))
   }
-  if (row[10] !== " ") {
+  if (row[10] !== " " || row[10] !== "") {
     employee.company_taxes.push(parseOther(row[10], row[11]))
   }
 
@@ -61,7 +61,7 @@ function parseColA(name_obj, cell){
 
 function parsePay(type, hrs, amt){
   if (type == "" || type == " " || type == "  "){
-    return nil
+    return null
   } else {
     return {
       type: type,
