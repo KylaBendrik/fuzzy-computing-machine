@@ -29,7 +29,7 @@ const createWindow = () => {
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
@@ -80,6 +80,12 @@ ipcMain.on("export", (event, data) => {
   Dispatch
     .exportData(data)
     .then(() => event.reply("export/response"));
+});
+ipcMain.on("import", (event) => {
+  console.log("import: main.js");
+  Dispatch
+    .importCSV()
+    .then(() => event.reply("import/response"));
 });
 ipcMain.on("closeWindow", (_event, _data) => {
   const win = BrowserWindow.getFocusedWindow(); /* Note this is different to the

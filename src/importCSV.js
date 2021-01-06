@@ -72,7 +72,7 @@ function parseOther(type, amt) {
   };
 }
 
-module.exports = function parse(rawString) {
+function parse(rawString) {
   const data = parseCSV(rawString);
 
   const orgName = data[0][0];
@@ -101,3 +101,5 @@ module.exports = function parse(rawString) {
 
   return { orgName, payrollDate, employees: allEmployees };
 };
+
+module.exports = {parse}

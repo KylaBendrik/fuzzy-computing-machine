@@ -2,6 +2,7 @@
 
 let fs = require("fs").promises;
 const Path = require("path");
+const ImportCSV = require("../src/importCSV.js")
 const { dialog } = require("electron");
 
 /**
@@ -26,6 +27,27 @@ function saveExport(all_data){
   return dialog
     .showSaveDialog( options)
     .then(({ filePath }) => fs.writeFile(filePath, `${data}`, "utf-8"));
+}
+
+function importCSV(){
+  console.log("We are now in model.js")
+
+  var options = {
+    title: "Import CSV File",
+    //defaultPath: ``,
+    buttonLabel: "Import",
+
+    filters:[
+      {name: "Comma-Separated Values", extensions: ["csv"]}
+    ]
+  };
+
+  data = dialog
+  .showOpenDialog(options)
+  //.then(({filePath}) => fs.readFile(filePath))
+
+  return ImportCSV.parse(data)
+  
 }
 
 /**
@@ -131,4 +153,4 @@ function cleanUpOldFiles(files, folder) {
   return files;
 }
 
-module.exports = { save, load, saveExport };
+module.exports = { save, load, saveExport, importCSV };

@@ -29,6 +29,14 @@ contextBridge.exposeInMainWorld("MainAPI", {
 
       ipcRenderer.send("export", data);
     });
+  },importCSV() {
+    console.log("importCSV: preload.js)");
+    return new Promise((resolve, _reject) => {
+      ipcRenderer.once("import/response",
+        (event) => resolve(event));
+
+      ipcRenderer.send("import");
+    });
   },
   closeWindow(){
     ipcRenderer.send("closeWindow");

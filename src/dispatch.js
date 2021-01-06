@@ -25,6 +25,11 @@ function exportData(data) {
   console.log(JSON.stringify(data));
   return Model.saveExport(data);
 }
+
+function importCSV() {
+  console.log("reached importCSV: dispatch.js");
+  return Model.importCSV()
+}
 /**
  * Asks for hash to populate pages and forms
  * @param {string} infoGroup form type
@@ -118,4 +123,4 @@ function newID(list_of_employees){
 }
 
  
-module.exports = { loadData, saveData, exportData};
+module.exports = { loadData, saveData, exportData, importCSV};

@@ -5,6 +5,7 @@
   import MyInfo from "./views/my_info.svelte";
   import Organization from "./views/org_info.svelte";
   import Employees from "./views/employees.svelte";
+  import Import from "./views/import.svelte";
   import Export from "./views/export.svelte";
   import Help from "./views/help.svelte";
 
@@ -26,6 +27,7 @@
     AddEmployee,
     ViewEmployee,
     Export,
+    Import,
     Help
   };
 

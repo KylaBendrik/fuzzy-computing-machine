@@ -4,25 +4,28 @@
   const dispatch = createEventDispatcher();
 
   let main_pages = [
-    {id: '0', name: 'Export', href:'/export'},
-    {id: '1', name: 'Dashboard', href:'/dashboard'},
-    {id: '2', name: 'Organization', href:'/org_info'},
-    {id: '3', name: 'Employees', href:'/employees'},
-    {id: '4', name: 'My Info', href:'/my_info'},
+    {id: '0', name: 'Import', href:'/import'},
+    {id: '1', name: 'Export', href:'/export'},
+    {id: '2', name: 'Dashboard', href:'/dashboard'},
+    {id: '3', name: 'Organization', href:'/org_info'},
+    {id: '4', name: 'Employees', href:'/employees'},
+    {id: '5', name: 'My Info', href:'/my_info'},
     {id: '20', name: 'Help', href:'/help'}
   ]
 
   const unsubscribe = page.subscribe(value => {
     //console.log(`id: ${value.id}, params: ${JSON.stringify(value.params)}`)
     if (value.id == '0'){
-    pickExport();
+    pickImport();
   } else if (value.id == '1') {
-    pickDashboard();
+    pickExport();
   } else if (value.id == '2') {
-    pickOrganization();
+    pickDashboard();
   } else if (value.id == '3') {
-    pickEmployees();
+    pickOrganization();
   } else if (value.id == '4') {
+    pickEmployees();
+  } else if (value.id == '5') {
     pickMyInfo();
   } else if (value.id == '10') {
     pickAddEmployee();
@@ -42,6 +45,12 @@
     dispatch('navmessage', {
       destination: "Export",
       title: "Export"
+    });
+  }
+  function pickImport(){
+    dispatch('navmessage', {
+      destination: "Import",
+      title: "Import"
     });
   }
   function pickDashboard(){
